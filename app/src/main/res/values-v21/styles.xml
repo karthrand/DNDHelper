@@ -2,4 +2,8 @@
 <resources>
     <style name="AppTheme" parent="@android:style/Theme.Material.Light">
 	</style>
+    <style name="AppCompatTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#99CCFF</item>
+        <item name="colorPrimaryDark">#99CCFF</item>
+	</style>
 </resources>
