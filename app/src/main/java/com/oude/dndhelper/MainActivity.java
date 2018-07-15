@@ -18,6 +18,7 @@ import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.oude.dndhelper.fragment.*;
 import android.widget.*;
+import com.oude.dndhelper.activity.*;
 
 public class MainActivity extends BaseActivity 
 {

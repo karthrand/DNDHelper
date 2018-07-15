@@ -1,4 +1,4 @@
-package com.oude.dndhelper;
+package com.oude.dndhelper.activity;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -8,6 +8,7 @@ import android.view.View;
 import com.oude.dndhelper.utils.LocalManageUtil;
 import android.content.Context;
 import android.content.Intent;
+import com.oude.dndhelper.*;
 
 public class LanguageActivity extends BaseActivity implements OnClickListener
 {

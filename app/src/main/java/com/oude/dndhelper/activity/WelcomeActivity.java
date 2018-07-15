@@ -1,4 +1,4 @@
-package com.oude.dndhelper;
+package com.oude.dndhelper.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.view.WindowManager;
 import android.view.Window;
 import java.util.Random;
+import com.oude.dndhelper.*;
 
 public class WelcomeActivity extends Activity 
 {

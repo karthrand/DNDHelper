@@ -1,4 +1,4 @@
-package com.oude.dndhelper;
+package com.oude.dndhelper.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import com.oude.dndhelper.utils.LocalManageUtil;
