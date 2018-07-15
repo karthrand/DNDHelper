@@ -12,5 +12,9 @@
     <string name="language_traditional">繁體中文</string>
     <string name="language_en">English</string>
     <string name="language_settings">語言設置</string>
+    <string name="tab_dice">投骰</string>
+    <string name="tab_shop">商店</string>
+    <string name="tab_character">人物</string>
+    <string name="tab_book">書籍</string>
 
 </resources>

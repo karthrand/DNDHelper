@@ -10,4 +10,8 @@
     <string name="language_traditional">繁體中文</string>
     <string name="language_en">English</string>
     <string name="language_settings">LanguageSettings</string>
+    <string name="tab_dice">Dice</string>
+    <string name="tab_shop">Shop</string>
+    <string name="tab_character">Role</string>
+    <string name="tab_book">Book</string>
 </resources>

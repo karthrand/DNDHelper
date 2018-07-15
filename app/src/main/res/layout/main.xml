@@ -19,7 +19,32 @@
 			app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
 	</FrameLayout>
+    
+	<RelativeLayout
+		xmlns:tools="http://schemas.android.com/tools"
+		android:id="@+id/activity_main"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:gravity="center_horizontal"
+		tools:context="com.oude.dndhelper.Activity">
 
+		<FrameLayout
+			android:id="@+id/fl"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_above="@+id/bottom_navigation_bar">
+
+		</FrameLayout>
+
+		<com.ashokvarma.bottomnavigation.BottomNavigationBar
+			android:id="@+id/bottom_navigation_bar"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="bottom"
+			android:layout_alignParentBottom="true"/>
+
+	</RelativeLayout>
+    
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
@@ -27,7 +52,7 @@
         android:clickable="true"
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header"
-        app:menu="@menu/nav_menu" />
+		app:menu="@menu/nav_menu"/>
 
 </android.support.v4.widget.DrawerLayout>
 
