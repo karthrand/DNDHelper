@@ -26,6 +26,11 @@
             android:label="@string/language_settings"
             android:theme="@style/AppCompatTheme">
         </activity>
+        <activity 
+            android:name=".activity.SettingActivity"
+            android:label="@string/setting"
+            android:theme="@style/SettingTheme">
+        </activity>
     </application>
 
 </manifest>

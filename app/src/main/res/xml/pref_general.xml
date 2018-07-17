@@ -1,0 +1,31 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <EditTextPreference
+        android:capitalize="words"
+        android:defaultValue="@string/pref_default_name"
+        android:inputType="textCapWords"
+        android:key="user_name"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_name"/>
+    
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="welcome_switch"
+        android:summary="@string/pref_description_switch"
+        android:title="@string/pref_title_switch"/>
+
+    
+    <ListPreference
+        android:defaultValue="3"
+        android:dependency="welcome_switch"
+        android:entries="@array/pref_time_list_titles"
+        android:entryValues="@array/pref_time_list_values"
+        android:key="wait_list"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="@string/pref_title_wait"/>
+
+</PreferenceScreen>

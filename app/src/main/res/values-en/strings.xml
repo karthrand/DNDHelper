@@ -14,4 +14,21 @@
     <string name="tab_shop">Shop</string>
     <string name="tab_character">Role</string>
     <string name="tab_book">Book</string>
+    <!-- General settings -->
+    <string name="pref_header_general">General</string>
+    <string name="pref_title_name">UserName</string>
+    <string name="pref_default_name">Anonymous</string>
+    <string name="pref_title_switch">WelcomeActivity</string>
+    <string name="pref_description_switch">Waiting for application to load</string>
+    <string name="pref_title_wait">WaitTime for WelcomeActivity</string>
+    <string-array name="pref_time_list_titles">
+        <item>1s</item>
+        <item>2s</item>
+        <item>3s</item>
+    </string-array>
+    <string-array name="pref_time_list_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>

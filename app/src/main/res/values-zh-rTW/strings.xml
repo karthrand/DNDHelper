@@ -16,5 +16,21 @@
     <string name="tab_shop">商店</string>
     <string name="tab_character">人物</string>
     <string name="tab_book">書籍</string>
-
+    <!-- General settings -->
+    <string name="pref_header_general">通用</string>
+    <string name="pref_title_name">用戶名</string>
+    <string name="pref_default_name">匿名</string>
+    <string name="pref_title_switch">開啟歡迎界面</string>
+    <string name="pref_description_switch">歡迎界面用於程式加載等待</string>
+    <string name="pref_title_wait">歡迎頁等待時間</string>
+    <string-array name="pref_time_list_titles">
+        <item>1s</item>
+        <item>2s</item>
+        <item>3s</item>
+    </string-array>
+    <string-array name="pref_time_list_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>

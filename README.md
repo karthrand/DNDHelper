@@ -8,7 +8,8 @@ DNDHelper: a tool for Dungeons & Dragons 3rd Edition
 3.左侧侧滑栏  
 4.应用语言国际化：支持简体中文、繁体中文和英文  
 0.10.1807xx  
-1.完成底部导航栏在多个Fragment之间的切换
+1.完成底部导航栏在多个Fragment之间的切换  
+2.完成设置页面，欢迎页开启和等待时间设置
 
 
 

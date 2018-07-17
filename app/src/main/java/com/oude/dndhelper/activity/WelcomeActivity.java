@@ -9,6 +9,8 @@ import android.view.WindowManager;
 import android.view.Window;
 import java.util.Random;
 import com.oude.dndhelper.*;
+import android.content.*;
+import android.preference.*;
 
 public class WelcomeActivity extends Activity 
 {
@@ -23,8 +25,9 @@ public class WelcomeActivity extends Activity
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         //使用背景，减少内存消耗,随机选择已有图片展示  
         Random random = new Random();
-        int num = random.nextInt(max)%(max-min+1) + min;
-        switch(num){
+        int num = random.nextInt(max) % (max - min + 1) + min;
+        switch (num)
+        {
             case 1: 
                 getWindow().getDecorView().setBackgroundResource(R.mipmap.welcome01);
                 break;
@@ -43,20 +46,33 @@ public class WelcomeActivity extends Activity
         }
 
         super.onCreate(savedInstanceState);
-        //延迟三秒后跳转
-        handler.sendEmptyMessageDelayed(0,3000);
+        //获取设置页面的参数
+        SharedPreferences sp= PreferenceManager.getDefaultSharedPreferences(WelcomeActivity.this);
+        Boolean welcomeSwitch = sp.getBoolean("welcome_switch", true);
+        Integer waitTime = Integer.parseInt(sp.getString("wait_list", "3"));
+        //根据设置选择延迟时间
+        if (welcomeSwitch)
+        {
+            handler.sendEmptyMessageDelayed(0, waitTime * 1000);
+        }
+        else
+        {
+            handler.sendEmptyMessageDelayed(0, 0);
+        }
 
     }
 
     private Handler handler = new Handler() {
         @Override
-        public void handleMessage(Message msg) {
+        public void handleMessage(Message msg)
+        {
             getHome();
             super.handleMessage(msg);
         }
     };
 
-    public void getHome(){
+    public void getHome()
+    {
         Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
         startActivity(intent);
         finish();
