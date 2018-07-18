@@ -9,7 +9,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 21
         versionCode 1
-        versionName "0.10.180710"
+        versionName "0.10.180720"
     }
     buildTypes {
         release {
@@ -27,4 +27,6 @@ dependencies {
     compile 'com.ashokvarma.android:bottom-navigation-bar:1.4.3'
     compile 'com.android.support:support-v4:26.0.0-alpha1'
     compile 'com.android.support:support-vector-drawable:26.0.0-alpha1'
+    compile 'com.squareup.okhttp3:okhttp:3.11.0'
+    compile 'com.squareup.okio:okio:1.14.1'
 }

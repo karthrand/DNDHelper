@@ -16,6 +16,10 @@ import java.net.*;
 import java.io.*;
 import android.widget.EditText;
 import android.util.*;
+import android.content.pm.*;
+import okhttp3.*;
+import org.json.*;
+import com.oude.dndhelper.utils.*;
 
 public class AboutActivity extends BaseActivity implements OnClickListener
 {
@@ -24,6 +28,11 @@ public class AboutActivity extends BaseActivity implements OnClickListener
     public static final int Success = 200;
     public static final int Fail = -1;
     public static final int Repeat = 409;
+    public static final int HaveUpdate = 1;
+    public static final int Latest = 0;
+    private TextView version;
+    //下载更新链接
+    public static final String UPDATE_URL = "http://oudezhinu.site/download/update.json";
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -33,10 +42,13 @@ public class AboutActivity extends BaseActivity implements OnClickListener
         update = (Button) findViewById(R.id.update);
         info = (Button) findViewById(R.id.info);
         feedback = (Button) findViewById(R.id.feedback);
+        version = (TextView) findViewById(R.id.version);
         
         Toolbar toolbar = (Toolbar) findViewById(R.id.about_toolbar);
         toolbar.setTitle(AboutActivity.this.getResources().getText(R.string.about));
         setSupportActionBar(toolbar);
+        //设置当前版本
+        version.setText(getVersionName(AboutActivity.this));
         //按钮监听
         update.setOnClickListener(this);
         info.setOnClickListener(this);
@@ -45,9 +57,10 @@ public class AboutActivity extends BaseActivity implements OnClickListener
         SharedPreferences sp= PreferenceManager.getDefaultSharedPreferences(AboutActivity.this);
         username = sp.getString("user_name", "匿名");
         email = sp.getString("user_mail", "null");
+        //加密信息以供反馈使用
         email_encode = java.net.URLEncoder.encode(email);
         name_encode= java.net.URLEncoder.encode(username);
-
+        
     }
 
 
@@ -58,7 +71,7 @@ public class AboutActivity extends BaseActivity implements OnClickListener
         switch (p1.getId())
         {
             case R.id.update:
-                Toast.makeText(AboutActivity.this, "还没施工！", Toast.LENGTH_SHORT).show();
+                update();
                 break;
             case R.id.info:
                 Uri uri = Uri.parse("http://oudezhinu.site/dndhelper/");
@@ -102,7 +115,7 @@ public class AboutActivity extends BaseActivity implements OnClickListener
                 break;
         }
     }
-    
+    //根据返回码判断反馈是否发送成功
     private Handler handler =new Handler(){
 
         @Override
@@ -118,6 +131,16 @@ public class AboutActivity extends BaseActivity implements OnClickListener
                 case Repeat:
                     Toast.makeText(AboutActivity.this,AboutActivity.this.getResources().getText(R.string.comment_repeat),Toast.LENGTH_SHORT).show();
                     break;
+                case HaveUpdate:
+                    AlertDialog.Builder builder= new AlertDialog.Builder(AboutActivity.this);
+                    View detailView = LayoutInflater.from(AboutActivity.this).inflate(R.layout.update, null);
+                    builder.setTitle(AboutActivity.this.getResources().getText(R.string.update));
+                    builder.setView(detailView);
+                    builder.show();        
+                    break;
+                case Latest:
+                    Toast.makeText(AboutActivity.this, AboutActivity.this.getResources().getText(R.string.callback), Toast.LENGTH_SHORT).show();
+                    break;
                 default:
                 break;                
             }
@@ -125,6 +148,7 @@ public class AboutActivity extends BaseActivity implements OnClickListener
         
     };
     
+    //将反馈信息通过线程以评论方式发送给wordpress
     private void sendRequestWithHttpClient(){
         
         
@@ -197,9 +221,86 @@ public class AboutActivity extends BaseActivity implements OnClickListener
                         }            
                     }
                 }
-            }).start();           
-            
+            }).start();                   
         
+    }
+    //获取当前应用版本名称
+    public String getVersionName(Context ctx){
+        
+        String appVersioName = "";
+        PackageManager manager = ctx.getPackageManager();
+        try {
+            PackageInfo info = manager.getPackageInfo(ctx.getPackageName(), 0);
+            appVersioName = info.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return appVersioName;
+    }
+    
+    //获取当前应用版本号
+    public Integer getVersionCode(Context ctx){
+
+        Integer appVersioCode = 0;
+        PackageManager manager = ctx.getPackageManager();
+        try {
+            PackageInfo info = manager.getPackageInfo(ctx.getPackageName(), 0);
+            appVersioCode = info.versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return appVersioCode;
+    }
+    
+    //获取更新地址
+    public void update(){
+        final updateInfo  response = new updateInfo();
+        OkHttpClient client = new OkHttpClient();
+        //使用eequest，并指定GET方法
+        Request request = new Request.Builder().get().url(UPDATE_URL).build();
+        Call call = client.newCall(request);
+        //异步调用并设置回调函数
+        call.enqueue(new Callback(){
+
+                @Override
+                public void onFailure(Call p1, IOException p2)
+                {
+                    
+                }
+
+                @Override
+                public void onResponse(Call p1, Response p2) throws IOException
+                {
+                    final String body = p2.body().string();
+                    try
+                    {
+                        //获取服务器json文件并解析                
+                        JSONObject object = new JSONObject(body);                 
+                        response.setAppName(object.getString("appname"));
+                        response.setVersion(object.getInt("version"));
+                        response.setDescribe(object.getString("describe"));
+                        response.setUrl(object.getString("url"));
+                        response.setPwd(object.getString("pwd"));
+                        //跳出弹出并提示更新
+                        Log.d("AboutActivity","版本号"+response.getVersion());
+                        if(getVersionCode(AboutActivity.this) < response.getVersion()){
+                            Message message = new Message();  
+                            message.what = HaveUpdate;                        
+                            handler.sendMessage(message);
+                        }else{
+                            Message message1 = new Message();  
+                            message1.what = Latest;                        
+                            handler.sendMessage(message1);
+                        }
+                        
+                    }
+                    catch (JSONException e)
+                    {}
+                                      
+                }
+            });
+            
+       
     }
     
 }

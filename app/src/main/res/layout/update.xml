@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:id="@+id/updateView1"
+		android:background="@color/silver"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/version_latest"
+		android:layout_below="@id/updateView1"
+		android:textSize="20sp"
+		android:id="@+id/updateTextView1"
+		android:textStyle="bold"
+		android:layout_marginTop="5dp"
+		android:layout_marginLeft="5dp"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/updateView1"
+		android:layout_toRightOf="@id/updateTextView1"
+		android:textSize="20sp"
+		android:id="@+id/updateTextView4"
+		android:layout_marginTop="5dp"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/updateTextView1"
+		android:text="@string/version_current"
+		android:textSize="20sp"
+		android:textStyle="bold"
+		android:id="@+id/updateTextView2"
+		android:layout_marginLeft="5dp"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/version_detail"
+		android:layout_below="@id/updateTextView2"
+		android:textSize="20sp"
+		android:textStyle="bold"
+		android:id="@+id/updateTextView3"
+		android:layout_marginLeft="5dp"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/updateTextView3"
+		android:id="@+id/updateTextView5"
+		android:layout_toRightOf="@id/updateTextView3"
+		android:textSize="20sp"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/updateTextView4"
+		android:layout_toRightOf="@id/updateTextView2"
+		android:textSize="20sp"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/version_download"
+		android:layout_below="@id/updateTextView5"
+		android:textSize="20sp"
+		android:textStyle="bold"
+		android:id="@+id/updateTextView6"
+		android:layout_marginLeft="5dp"/>
+
+	<Button
+		style="?android:attr/borderlessButtonStyle"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/yun_baidu"
+		android:layout_below="@id/updateTextView5"
+		android:textSize="20sp"
+		android:textStyle="bold"
+		android:id="@+id/updateButton1"
+		android:layout_toRightOf="@id/updateTextView6"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/version_pwd"
+		android:layout_below="@id/updateButton1"
+		android:textSize="20sp"
+		android:textStyle="bold"
+		android:id="@+id/updateTextView7"
+		android:layout_marginLeft="5dp"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/updateButton1"
+		android:layout_toRightOf="@id/updateTextView7"
+		android:textSize="20sp"/>
+
+</RelativeLayout>
+

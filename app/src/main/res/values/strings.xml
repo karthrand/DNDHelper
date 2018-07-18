@@ -36,7 +36,6 @@
         <item>3</item>
     </string-array>
     <!-- About -->
-    <string name="version">V0.10.180710</string>
     <string name="update">版本更新</string>
     <string name="update_info">更新详情</string>
     <string name="feedback">反馈</string>
@@ -46,5 +45,12 @@
     <string name="fb_email">当前邮箱：</string>
     <string name="comment_success">反馈成功！</string>
     <string name="comment_fail">反馈失败！</string>
-    <string name="comment_repeat">請不要反饋重復內容！</string>
+    <string name="comment_repeat">请不要反馈重复内容！</string>
+    <string name="version_current">当前版本：</string>
+    <string name="version_latest">最新版本：</string>
+    <string name="version_detail">版本详情：</string>
+    <string name="version_download">下载地址：</string>
+    <string name="version_pwd">提取密码：</string>
+    <string name="yun_baidu">百度云</string>
+    <string name="callback">已是最新版本</string>
 </resources>

@@ -46,5 +46,11 @@
     <string name="comment_success">Feedback Success！</string>
     <string name="comment_fail">Feedback Failed！</string>
     <string name="comment_repeat">Content Repetition！</string>
-    
+    <string name="version_current">Current Version：</string>
+    <string name="version_latest">Latest Version：</string>
+    <string name="version_detail">Version Detail：</string>
+    <string name="version_download">Download Address：</string>
+    <string name="version_pwd">Passwd：</string>
+    <string name="yun_baidu">Baidu Cloud</string>
+    <string name="callback">already the latest version</string>
 </resources>

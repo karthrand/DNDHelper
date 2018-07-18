@@ -47,5 +47,13 @@
     <string name="fb_email">當前郵箱：</string>
     <string name="comment_success">反饋成功！</string>
     <string name="comment_fail">反饋失敗！</string>
-    <string name="comment_repeat">请不要反馈重复内容！</string>
+    <string name="comment_repeat">請不要反饋重復內容！</string>
+    <string name="version_current">當前版本：</string>
+    <string name="version_latest">最新版本：</string>
+    <string name="version_detail">版本詳情：</string>
+    <string name="version_download">下載地址：</string>
+    <string name="version_pwd">提取密碼：</string>
+    <string name="yun_baidu">百度雲</string>
+    <string name="callback">已是最新版本</string>
+    
 </resources>
