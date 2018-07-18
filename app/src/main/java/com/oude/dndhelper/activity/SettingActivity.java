@@ -114,6 +114,7 @@ public class SettingActivity extends AppCompatPreferenceActivity
             addPreferencesFromResource(R.xml.pref_general);
             setHasOptionsMenu(true);
             bindPreferenceSummaryToValue(findPreference("user_name"));
+            bindPreferenceSummaryToValue(findPreference("user_mail"));
             bindPreferenceSummaryToValue(findPreference("wait_list"));
 
         }

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- 标题栏按钮背景颜色 -->
+    <drawable name="button_pressed">#D3D3D3</drawable>
+    <drawable name="button_normal">#FFFFFF</drawable>
     <color name="colorPrimary">#99CCFF</color>
     <color name="colorPrimaryDark">#99CCFF</color>
     <color name="colorAccent">#FF4081</color>
@@ -113,7 +116,6 @@
     <color name="olivedrab">#6B8E23</color> <!--深绿褐色 -->
     <color name="slateblue">#6A5ACD</color> <!--石蓝色 -->
     <color name="dimgray">#696969</color> <!--暗灰色 -->
-    <color name="dimgrey">#696969</color> <!--暗灰色 -->
     <color name="mediumaquamarine">#66CDAA</color> <!--中绿色 -->
     <color name="cornflowerblue">#6495ED</color> <!--菊兰色 -->
     <color name="cadetblue">#5F9EA0</color> <!--军兰色 -->

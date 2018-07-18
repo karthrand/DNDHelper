@@ -16,10 +16,13 @@
     <string name="tab_shop">商店</string>
     <string name="tab_character">人物</string>
     <string name="tab_book">書籍</string>
+    <string name="confirm">確定</string>
+    <string name="cancel">取消</string>
     <!-- General settings -->
     <string name="pref_header_general">通用</string>
     <string name="pref_title_name">用戶名</string>
     <string name="pref_default_name">匿名</string>
+    <string name="pref_mail">郵箱</string>
     <string name="pref_title_switch">開啟歡迎界面</string>
     <string name="pref_description_switch">歡迎界面用於程式加載等待</string>
     <string name="pref_title_wait">歡迎頁等待時間</string>
@@ -33,4 +36,16 @@
         <item>2</item>
         <item>3</item>
     </string-array>
+    <!-- About -->
+    <string name="version">V0.10.180710</string>
+    <string name="update">版本更新</string>
+    <string name="update_info">更新詳情</string>
+    <string name="feedback">反饋</string>
+    <string name="about_title">版本與反饋</string>
+    <string name="oude">歡迎訪問歐德的半位面</string>
+    <string name="fb_user">當前用戶：</string>
+    <string name="fb_email">當前郵箱：</string>
+    <string name="comment_success">反饋成功！</string>
+    <string name="comment_fail">反饋失敗！</string>
+    <string name="comment_repeat">请不要反馈重复内容！</string>
 </resources>

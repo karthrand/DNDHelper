@@ -89,7 +89,10 @@ public class MainActivity extends BaseActivity
                 case R.id.nav_setting:
                     Intent intent2 =new Intent(MainActivity.this, SettingActivity.class);
                     startActivity(intent2);
-                    
+                    break;
+                case R.id.nav_about:
+                    Intent intent3 =new Intent(MainActivity.this, AboutActivity.class);
+                    startActivity(intent3);
                     //mDrawerLayout.closeDrawers();
                     break;
                 default:

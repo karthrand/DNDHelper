@@ -15,10 +15,13 @@
     <string name="tab_shop">商店</string>
     <string name="tab_character">人物</string>
     <string name="tab_book">书籍</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
     <!-- General settings -->
     <string name="pref_header_general">通用</string>
     <string name="pref_title_name">用户名</string>
     <string name="pref_default_name">匿名</string>
+    <string name="pref_mail">邮箱</string>
     <string name="pref_title_switch">开启欢迎界面</string>
     <string name="pref_description_switch">欢迎界面用于应用加载等待</string>
     <string name="pref_title_wait">欢迎页等待时间</string>
@@ -32,4 +35,16 @@
         <item>2</item>
         <item>3</item>
     </string-array>
+    <!-- About -->
+    <string name="version">V0.10.180710</string>
+    <string name="update">版本更新</string>
+    <string name="update_info">更新详情</string>
+    <string name="feedback">反馈</string>
+    <string name="about_title">版本与反馈</string>
+    <string name="oude">欢迎访问欧德的半位面</string>
+    <string name="fb_user">当前用户：</string>
+    <string name="fb_email">当前邮箱：</string>
+    <string name="comment_success">反馈成功！</string>
+    <string name="comment_fail">反馈失败！</string>
+    <string name="comment_repeat">請不要反饋重復內容！</string>
 </resources>

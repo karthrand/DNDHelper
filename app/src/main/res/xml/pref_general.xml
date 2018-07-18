@@ -11,6 +11,16 @@
         android:singleLine="true"
         android:title="@string/pref_title_name"/>
     
+    <EditTextPreference
+        android:capitalize="words"
+        android:defaultValue="@null"
+        android:inputType="textCapWords"
+        android:key="user_mail"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_mail"/>
+    
     <SwitchPreference
         android:defaultValue="true"
         android:key="welcome_switch"
