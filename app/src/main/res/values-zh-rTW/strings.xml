@@ -55,5 +55,7 @@
     <string name="version_pwd">提取密碼：</string>
     <string name="yun_baidu">百度雲</string>
     <string name="callback">已是最新版本</string>
-    
+    <string name="Error_TimeOut">更新超時！</string>
+    <string name="Error_Intenet">未知網絡異常！</string>
+    <string name="Error_BadGatway">網絡無法連接，請檢查網絡！</string>
 </resources>

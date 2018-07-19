@@ -53,4 +53,7 @@
     <string name="version_pwd">Passwd：</string>
     <string name="yun_baidu">Baidu Cloud</string>
     <string name="callback">already the latest version</string>
+    <string name="Error_TimeOut">Update TimeOut，Please Check NetWork！</string>
+    <string name="Error_Intenet">Unknown Internet Error！</string>
+    <string name="Error_BadGatway">Network Can\'t Connect</string>
 </resources>

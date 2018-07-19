@@ -2,36 +2,36 @@ package com.oude.dndhelper.utils;
 
 public class updateInfo
 {
-    private String appname;
-    private Integer version;
+    private String version;
+    private Integer code;
     private String describe;
     private String url;
     private String pwd;
     public updateInfo(){
         
     }
-    public updateInfo(String appname,Integer version,String describe,String url,String pwd){
-        this.appname = appname;
+    public updateInfo(String version,Integer code,String describe,String url,String pwd){
         this.version = version;
+        this.code = code;
         this.describe = describe;
         this.url = url;
         this.pwd = pwd;
     }
     
-    public String getAppName(){
-        return appname;
-    }
-    
-    public void setAppName(String appname){
-        this.appname = appname;        
-    }
-    
-    public Integer getVersion(){
+    public String getVersion(){
         return version;
     }
-
-    public void setVersion(Integer version){
+    
+    public void setVersion(String version){
         this.version = version;        
+    }
+    
+    public Integer getCode(){
+        return code;
+    }
+
+    public void setCode(Integer code){
+        this.code = code;        
     }
     
     public String getDescribe(){

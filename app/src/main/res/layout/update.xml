@@ -27,7 +27,7 @@
 		android:layout_below="@id/updateView1"
 		android:layout_toRightOf="@id/updateTextView1"
 		android:textSize="20sp"
-		android:id="@+id/updateTextView4"
+		android:id="@+id/version_latest"
 		android:layout_marginTop="5dp"/>
 
 	<TextView
@@ -54,22 +54,23 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_below="@id/updateTextView3"
-		android:id="@+id/updateTextView5"
+		android:id="@+id/version_desc"
 		android:layout_toRightOf="@id/updateTextView3"
 		android:textSize="20sp"/>
 
 	<TextView
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_below="@id/updateTextView4"
+		android:layout_below="@id/version_latest"
 		android:layout_toRightOf="@id/updateTextView2"
-		android:textSize="20sp"/>
+		android:textSize="20sp"
+		android:id="@+id/version_current"/>
 
 	<TextView
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:text="@string/version_download"
-		android:layout_below="@id/updateTextView5"
+		android:layout_below="@id/version_desc"
 		android:textSize="20sp"
 		android:textStyle="bold"
 		android:id="@+id/updateTextView6"
@@ -80,7 +81,7 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:text="@string/yun_baidu"
-		android:layout_below="@id/updateTextView5"
+		android:layout_below="@id/version_desc"
 		android:textSize="20sp"
 		android:textStyle="bold"
 		android:id="@+id/updateButton1"
@@ -101,7 +102,8 @@
 		android:layout_height="wrap_content"
 		android:layout_below="@id/updateButton1"
 		android:layout_toRightOf="@id/updateTextView7"
-		android:textSize="20sp"/>
+		android:textSize="20sp"
+		android:id="@+id/version_pwd"/>
 
 </RelativeLayout>
 
