@@ -49,11 +49,11 @@ public class WelcomeActivity extends Activity
         //获取设置页面的参数
         SharedPreferences sp= PreferenceManager.getDefaultSharedPreferences(WelcomeActivity.this);
         Boolean welcomeSwitch = sp.getBoolean("welcome_switch", true);
-        Integer waitTime = Integer.parseInt(sp.getString("wait_list", "3"));
+        Double waitTime =Double.parseDouble(sp.getString("wait_list", "3"));
         //根据设置选择延迟时间
         if (welcomeSwitch)
         {
-            handler.sendEmptyMessageDelayed(0, waitTime * 1000);
+            handler.sendEmptyMessageDelayed(0, (int)((waitTime-0.5) * 1000));
         }
         else
         {

@@ -14,8 +14,6 @@ public class ShopFragment extends Fragment
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
 		View view=inflater.inflate(R.layout.shop,container,false);
-        TextView content= (TextView) view.findViewById(R.id.content);
-        content.setText("商店");
         return view;
 	}
 

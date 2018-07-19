@@ -14,8 +14,6 @@ public class DiceFragment extends Fragment
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
 		View view=inflater.inflate(R.layout.dice,container,false);
-        TextView content= (TextView) view.findViewById(R.id.content);
-        content.setText("投骰");
         return view;
 	}
 	

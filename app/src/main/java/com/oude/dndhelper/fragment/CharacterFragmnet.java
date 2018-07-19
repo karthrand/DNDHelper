@@ -14,8 +14,6 @@ public class  CharacterFragmnet extends Fragment
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
 		View view=inflater.inflate(R.layout.character,container,false);
-        TextView content= (TextView) view.findViewById(R.id.content);
-        content.setText("人物");
         return view;
 	}
 

@@ -16,6 +16,7 @@
     <string name="tab_book">Book</string>
     <string name="confirm">OK</string>
     <string name="cancel">Cancel</string>
+    <string name="wait">Coming Soon！</string>
     <!-- General settings -->
     <string name="pref_header_general">General</string>
     <string name="pref_title_name">UserName</string>
