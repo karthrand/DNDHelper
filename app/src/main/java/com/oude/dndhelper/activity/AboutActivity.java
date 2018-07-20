@@ -1,5 +1,6 @@
 package com.oude.dndhelper.activity;
 
+import android.app.AlertDialog;
 import android.os.*;
 import android.support.v7.widget.*;
 import com.oude.dndhelper.*;
@@ -88,9 +89,9 @@ public class AboutActivity extends BaseActivity implements OnClickListener
                 View detailView = LayoutInflater.from(AboutActivity.this).inflate(R.layout.feedback, null);
                 builder.setTitle(AboutActivity.this.getResources().getText(R.string.feedback));
                 builder.setView(detailView);
-                TextView fb_name = detailView.findViewById(R.id.fb_name);
-                TextView fb_email = detailView.findViewById(R.id.fb_email);
-                final EditText comments =detailView.findViewById(R.id.comments);
+                TextView fb_name = (TextView)detailView.findViewById(R.id.fb_name);
+                TextView fb_email = (TextView)detailView.findViewById(R.id.fb_email);
+                final EditText comments = (EditText) detailView.findViewById(R.id.comments);
                 fb_name.setText(AboutActivity.this.getResources().getText(R.string.fb_user) + username);
                 fb_email.setText(AboutActivity.this.getResources().getText(R.string.fb_email) + email);
                 builder.setNegativeButton(AboutActivity.this.getResources().getText(R.string.cancel), new DialogInterface.OnClickListener(){
@@ -143,11 +144,11 @@ public class AboutActivity extends BaseActivity implements OnClickListener
                     View detailView = LayoutInflater.from(AboutActivity.this).inflate(R.layout.update, null);
                     builder.setTitle(AboutActivity.this.getResources().getText(R.string.update));
                     builder.setView(detailView);
-                    TextView version_latest =detailView.findViewById(R.id.version_latest);
-                    TextView version_current =detailView.findViewById(R.id.version_current);
-                    TextView version_desc =detailView.findViewById(R.id.version_desc);
-                    TextView version_pwd =detailView.findViewById(R.id.version_pwd);
-                    Button cloud =detailView.findViewById(R.id.updateButton1);
+                    TextView version_latest = (TextView) detailView.findViewById(R.id.version_latest);
+                    TextView version_current = (TextView) detailView.findViewById(R.id.version_current);
+                    TextView version_desc = (TextView) detailView.findViewById(R.id.version_desc);
+                    TextView version_pwd = (TextView) detailView.findViewById(R.id.version_pwd);
+                    Button cloud = (Button) detailView.findViewById(R.id.updateButton1);
                     //设置显示信息
                     version_latest.setText(response.getVersion());
                     version_current.setText(getVersionName(AboutActivity.this));
