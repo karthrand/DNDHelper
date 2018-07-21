@@ -57,4 +57,9 @@
     <string name="Error_TimeOut">更新超时！</string>
     <string name="Error_Intenet">未知网络异常！</string>
     <string name="Error_BadGatway">网络无法连接，请检查网络！</string>
+    <!--  Fragment  -->
+    <string name="shop_weapen">武器店</string>
+    <string name="shop_armor">盔甲店</string>
+    <string name="shop_item">杂货铺</string>
+    <string name="shop_magic">奥法商会</string>
 </resources>

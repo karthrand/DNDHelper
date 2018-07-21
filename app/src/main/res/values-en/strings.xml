@@ -57,4 +57,9 @@
     <string name="Error_TimeOut">Update TimeOut，Please Check NetWork！</string>
     <string name="Error_Intenet">Unknown Internet Error！</string>
     <string name="Error_BadGatway">Network Can\'t Connect</string>
+    <!--  Fragment  -->
+    <string name="shop_weapen">Weapons Shop</string>
+    <string name="shop_armor">Armour Shop</string>
+    <string name="shop_item">Variety Shop</string>
+    <string name="shop_magic">Magic Shop</string>
 </resources>

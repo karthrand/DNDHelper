@@ -31,6 +31,7 @@
 
 	<Button
 		style="?android:attr/borderlessButtonStyle"
+        android:textAllCaps="false"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:text="@string/language_en"

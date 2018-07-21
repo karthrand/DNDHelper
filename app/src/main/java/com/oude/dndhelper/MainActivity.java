@@ -19,6 +19,8 @@ import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.oude.dndhelper.fragment.*;
 import android.widget.*;
 import com.oude.dndhelper.activity.*;
+import android.view.*;
+import android.net.*;
 
 public class MainActivity extends BaseActivity 
 {
@@ -39,6 +41,14 @@ public class MainActivity extends BaseActivity
         initView();
         initBottomNavigationBar();
         initListener();
+    }
+    
+    //toolbar加载菜单布局文件
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.toolbar,menu);
+        return true;
     }
 
     //初始化布局
@@ -113,9 +123,34 @@ public class MainActivity extends BaseActivity
             case android.R.id.home:
                 mDrawerLayout.openDrawer(GravityCompat.START);
                 break;
+            case R.id.help:
+                gethelp();                          
+                break;
             default:
         }
         return true;
+    }
+    
+    //根据不同的Fragment，帮助内容展示不同
+    private void gethelp(){
+        switch(index){
+            case 0:
+                Toast.makeText(this,"功能1",Toast.LENGTH_SHORT).show();
+                break;
+            case 1:
+                Uri uri = Uri.parse("http://oudezhinu.site/dungeons-dragons/rulebooks/");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+                break;
+            case 2:
+                Toast.makeText(this,"功能3",Toast.LENGTH_SHORT).show();
+                break;
+            case 3:
+                Toast.makeText(this,"功能4",Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                break;
+        }
     }
 
 
