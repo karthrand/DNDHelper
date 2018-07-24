@@ -20,7 +20,7 @@ import android.util.*;
 import android.content.pm.*;
 import okhttp3.*;
 import org.json.*;
-import com.oude.dndhelper.utils.*;
+import com.oude.dndhelper.entity.*;
 import java.util.concurrent.*;
 
 public class AboutActivity extends BaseActivity implements OnClickListener

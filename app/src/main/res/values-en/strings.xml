@@ -62,4 +62,17 @@
     <string name="shop_armor">Armour Shop</string>
     <string name="shop_item">Variety Shop</string>
     <string name="shop_magic">Magic Shop</string>
+    <string name="item_name">Name:</string>
+    <string name="item_source">Source:</string>
+    <string name="item_type">Type:</string>
+    <string name="item_price">Price:</string>
+    <string name="item_weight">Weight:</string>
+    <string name="item_explain">More:</string>
+    <string name="modify">Modify</string>
+    <string name="buy">Buy</string>
+    <string name="detail">Details</string>
+    <string name="insert">Insert</string>
+    <string name="operation">Operation:</string>
+    <string name="filter">Filter:</string>
+    <string name="query">Query</string>
 </resources>

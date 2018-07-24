@@ -36,6 +36,11 @@
             android:label="@string/about"
             android:theme="@style/AppCompatTheme">
         </activity>
+        <activity 
+            android:name=".activity.ItemActivity"
+            android:theme="@style/AppCompatTheme"
+            android:label="@string/shop_item">
+        </activity>
     </application>
 
 </manifest>

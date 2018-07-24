@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner_chose">
+        <item>物品类别</item>
+        <item>资料来源</item>
+    </string-array>
+    <string-array name="spinner_type">
+        <item>所有类别</item>
+        <item>冒险物品</item>
+        <item>坐骑相关</item>
+        <item>服饰物品</item>
+        <item>技能职业</item>
+        <item>运输工具</item>
+        <item>饮食住宿</item>
+        <item>玩家自设</item>
+    </string-array>
+    <string-array name="spinner_source">
+        <item>所有来源</item>
+        <item>玩家手册</item>
+        <item>玩家自设</item>
+    </string-array>
+</resources>
+    

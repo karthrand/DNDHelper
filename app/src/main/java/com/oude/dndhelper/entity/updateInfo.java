@@ -1,4 +1,4 @@
-package com.oude.dndhelper.utils;
+package com.oude.dndhelper.entity;
 
 public class updateInfo
 {

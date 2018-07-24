@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner_chose">
+        <item>Categories</item>
+        <item>Source</item>
+    </string-array>
+    <string-array name="spinner_type">
+        <item>All Type</item>
+        <item>Adventure</item>
+        <item>Mounts</item>
+        <item>Clothes</item>
+        <item>Skills</item>
+        <item>Transportion</item>
+        <item>Accommodation</item>
+        <item>Self-Designed</item>
+    </string-array>
+    <string-array name="spinner_source">
+        <item>All Source</item>
+        <item>PHB</item>
+        <item>Self-Designed</item>
+    </string-array>
+</resources>
+    

@@ -64,4 +64,17 @@
     <string name="shop_armor">盔甲店</string>
     <string name="shop_item">雜貨鋪</string>
     <string name="shop_magic">奧法商會</string>
+    <string name="item_name">名稱:</string>
+    <string name="item_source">來源:</string>
+    <string name="item_type">類型:</string>
+    <string name="item_price">價格:</string>
+    <string name="item_weight">重量:</string>
+    <string name="item_explain">介紹:</string>
+    <string name="modify">修改</string>
+    <string name="buy">購買</string>
+    <string name="detail">詳情</string>
+    <string name="insert">插入</string>
+    <string name="operation">操作:</string>
+    <string name="filter">篩選:</string>
+    <string name="query">查詢</string>
 </resources>

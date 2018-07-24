@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:layout_gravity="top"
+	android:id="@+id/itemdetailsRelativeLayout1">
+
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:background="#99CCFF"
+		android:id="@+id/itemdetailsView1"/>
+
+	<LinearLayout
+		android:layout_below="@id/itemdetailsView1"
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+		android:id="@+id/itemdetailsLinearLayout0">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/item_name"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textStyle="bold"
+			android:textSize="15sp"/>
+
+		<EditText
+			android:layout_width="wrap_content"
+			android:ems="5"
+			android:layout_height="wrap_content"
+			android:inputType="text"
+			android:id="@+id/item_name"/>
+
+	</LinearLayout>
+    
+    <LinearLayout
+        android:layout_below="@id/itemdetailsLinearLayout0"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/itemdetailsLinearLayout1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/item_source"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="bold"
+            android:textSize="15sp"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:id="@+id/item_source"
+            android:ems="5"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_below="@id/itemdetailsLinearLayout1"
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+		android:id="@+id/itemdetailsLinearLayout2">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/item_type"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textStyle="bold"
+			android:textSize="15sp"/>
+
+		<EditText
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:inputType="text"
+			android:id="@+id/item_type"
+			android:ems="5"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+		android:layout_below="@id/itemdetailsLinearLayout2"
+		android:id="@+id/itemdetailsLinearLayout3">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/item_price"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textStyle="bold"
+			android:textSize="15sp"/>
+
+		<EditText
+			android:layout_width="wrap_content"
+			android:ems="5"
+			android:layout_height="wrap_content"
+			android:inputType="numberDecimal"
+			android:id="@+id/item_price"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="金币"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textSize="15sp"
+			android:textStyle="bold"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+		android:layout_below="@id/itemdetailsLinearLayout3"
+		android:id="@+id/itemdetailsLinearLayout4">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/item_weight"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textStyle="bold"
+			android:textSize="15sp"/>
+
+		<EditText
+			android:layout_width="wrap_content"
+			android:ems="5"
+			android:layout_height="wrap_content"
+			android:inputType="numberDecimal"
+			android:id="@+id/item_weight"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="磅"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textSize="15sp"
+			android:textStyle="bold"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_below="@id/itemdetailsLinearLayout4"
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+		android:id="@+id/itemdetailsLinearLayout5">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/item_explain"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textStyle="bold"
+			android:textSize="15sp"/>
+
+		<EditText
+			android:layout_width="match_parent"
+			android:ems="0"
+			android:layout_height="wrap_content"
+			android:inputType="text|textMultiLine"
+			android:id="@+id/item_explain"/>
+
+	</LinearLayout>
+
+</RelativeLayout>
+

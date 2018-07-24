@@ -62,4 +62,17 @@
     <string name="shop_armor">盔甲店</string>
     <string name="shop_item">杂货铺</string>
     <string name="shop_magic">奥法商会</string>
+    <string name="item_name">名称:</string>
+    <string name="item_source">来源:</string>
+    <string name="item_type">类型:</string>
+    <string name="item_price">价格:</string>
+    <string name="item_weight">重量:</string>
+    <string name="item_explain">介绍:</string>
+    <string name="modify">修改</string>
+    <string name="buy">购买</string>
+    <string name="detail">详情</string>
+    <string name="insert">插入</string>
+    <string name="operation">操作:</string>
+    <string name="filter">筛选:</string>
+    <string name="query">查询</string>
 </resources>
