@@ -2,11 +2,12 @@
 <resources>
     <style name="AppTheme" parent="@android:style/Theme.Material.Light">
 	</style>
-    <style name="AppCompatTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppCompatTheme" parent="Theme.AppCompat.Light.NoActionBar">	
         <item name="colorPrimary">#99CCFF</item>
         <item name="colorPrimaryDark">#99CCFF</item>
 	</style>
     <style name="SettingTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+		<!--<item name="android:windowDrawsSystemBarBackgrounds">false</item>-->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>

@@ -1,17 +1,14 @@
 package com.oude.dndhelper.activity;
 
 import android.content.SharedPreferences;
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View.OnClickListener;
 import android.view.View;
-import android.widget.TextView.SavedState;
 import android.widget.Button;
 import android.widget.EditText;
 import android.support.v7.widget.RecyclerView;
 import java.util.List;
 import android.widget.TextView;
-import android.view.ViewGroup;
 import android.view.LayoutInflater;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -20,33 +17,30 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.content.ContentValues;
 import android.widget.Toast;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.util.TypedValue;
-import android.graphics.Typeface;
 import java.util.LinkedList;
-import java.math.BigDecimal;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View.OnLongClickListener;
 import android.widget.ArrayAdapter;
-import android.widget.ListView.FixedViewInfo;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.AdapterView;
-import android.widget.Adapter;
 import android.database.DatabaseErrorHandler;
 import android.support.design.widget.Snackbar;
-import android.support.v7.widget.SnapHelper;
 import com.oude.dndhelper.entity.*;
 import com.oude.dndhelper.utils.*;
 import com.oude.dndhelper.*;
 import android.support.v7.widget.*;
+import android.widget.AdapterView.*;
+import android.graphics.*;
+import android.view.*;
 
 
 public class ItemActivity extends BaseActivity
 {
+    //数据库相关
     private DBListAdapter adapter;
-
     private ShopDatabaseHelper itemdb;
     //用item表的name作为筛选条件，因此需要保证item的name的唯一性
     private String item_name,item_type,item_explain,item_source;
@@ -60,12 +54,23 @@ public class ItemActivity extends BaseActivity
     private ArrayAdapter<String> adapter_fixed,adapter_change;
     String[] change;
     private Button bn_query,bn_insert;
+    //使用数组获取array的值，不同语言下显获取到的不同
+    ArrayList<String> spinner_chose,spinner_type,spinner_source;
+    String[] spinner_choses,spinner_types,spinner_sources;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.shop_item);
-		Toolbar toolbar = (Toolbar) findViewById(R.id.item_toolbar);
+		initview();	
+    }
+
+	//初始化布局
+	private void initview()
+    {
+        //标题栏
+        Toolbar toolbar = (Toolbar) findViewById(R.id.item_toolbar);
         toolbar.setTitle(ItemActivity.this.getResources().getText(R.string.shop_item));
         setSupportActionBar(toolbar);
         //按钮绑定
@@ -96,7 +101,8 @@ public class ItemActivity extends BaseActivity
         RecyclerView recycleView = (RecyclerView) findViewById(R.id.item_RecyclerView1);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recycleView.setLayoutManager(layoutManager);
-        adapter = new DBListAdapter(list);
+        adapter = new DBListAdapter(ItemActivity.this, list);
+		adapter.setOnItemClickListener(new mItemClickListener());
         recycleView.setAdapter(adapter);
 
         //下拉表
@@ -112,7 +118,75 @@ public class ItemActivity extends BaseActivity
         //插入按钮
         bn_insert.setOnClickListener(new insertListener());
 
+        //使用数据获取不同语言下的各种string-array
+        spinner_chose = new ArrayList<>();     
+        spinner_choses = getResources().getStringArray(R.array.spinner_chose);
+
+        spinner_chose = new ArrayList<>();     
+        spinner_types = getResources().getStringArray(R.array.spinner_type);
+
+        spinner_chose = new ArrayList<>();     
+        spinner_sources = getResources().getStringArray(R.array.spinner_source);
+
+	}
+
+	//实现toolbar按钮功能
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.shop_toolbar, menu);
+        return true;
     }
+
+    //菜单文件功能实现
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+            case R.id.imports:
+                Toast.makeText(this, "导入功能", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.exports:
+                Toast.makeText(this, "导出功能", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+        }
+        return true;
+    }
+
+	//Recycle的的点击和长按事件实现
+	class mItemClickListener implements DBListAdapter.OnItemClickListener
+    {
+
+		@Override
+		public void onLongClick(int position, View v)
+		{
+			ItemsList itmsList = list.get(position);
+			switch (position)
+			{
+				default: 
+					DeleteItem(itmsList.getName(), position , v);
+					break;
+			}
+		}
+
+
+		@Override
+		public void onClick(int position, View v)
+		{
+			ItemsList itmsList = list.get(position);
+
+			//在初始化详情之前获取当前列的name
+			item_name = itmsList.getName();
+			switch (position)
+			{
+				default: Detail();
+					break;
+			}
+		}
+    }
+
 
     @Override
     protected void onDestroy()
@@ -156,94 +230,6 @@ public class ItemActivity extends BaseActivity
 
     }
 
-
-    //RecycleView的Adapter
-    public class DBListAdapter extends RecyclerView.Adapter<DBListAdapter.ViewHolder>
-    {
-        private List<ItemsList> mItemsList;
-        class ViewHolder extends RecyclerView.ViewHolder
-        {
-            View ItemsView;
-            TextView itemsName;
-
-            public ViewHolder(View view)
-            {
-                super(view);
-                ItemsView = view;
-                itemsName = view.findViewById(R.id.items_list_name);
-            }
-        }
-
-        public DBListAdapter(List<ItemsList> itemsList)
-        {
-            mItemsList = itemsList;
-        }
-
-        @Override
-        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
-        {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemslist, parent, false);
-            final ViewHolder holder = new ViewHolder(view);
-            //点击事件
-            holder.ItemsView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v)
-                    {
-
-                        int position = holder.getAdapterPosition();
-                        ItemsList itmsList = mItemsList.get(position);
-                        
-                        //在初始化详情之前获取当前列的name
-                        item_name = itmsList.getName();
-                        switch (position)
-                        {
-                            default: Detail();
-                                break;
-                        }
-                    }
-                });
-            //长按事件
-            holder.ItemsView.setOnLongClickListener(new View.OnLongClickListener(){
-
-                    @Override
-                    public boolean onLongClick(View p1)
-                    {
-                        int position = holder.getAdapterPosition();
-                        ItemsList itmsList = mItemsList.get(position);
-                        switch (position)
-                        {
-                            default: DeleteItem(itmsList.getName(), position,p1);
-                                break;
-                        }
-                        return true;
-                    }
-                });            
-   
-            return holder;
-        }
-
-        @Override
-        public void onBindViewHolder(ViewHolder holder, int position)
-        {
-            ItemsList itemsList = mItemsList.get(position);
-            holder.itemsName.setText(itemsList.getName());
-            
-        }
-
-        @Override
-        public int getItemCount()
-        {
-            return mItemsList.size();
-        }
-        //自定义删除操作
-        public void removeItem(int pos)
-        {
-            mItemsList.remove(pos);
-            notifyItemRemoved(pos);
-        }      
-        
-    }
-
     //查询按钮实现
     class queryListener implements OnClickListener
     {
@@ -276,7 +262,6 @@ public class ItemActivity extends BaseActivity
             final EditText price = detailView.findViewById(R.id.item_price);
             final EditText weight = detailView.findViewById(R.id.item_weight);
             final EditText explain = detailView.findViewById(R.id.item_explain);
-
             //修改数据库中取出数据后的字体大小和风格，尽量与旁边的TextView显示风格对齐
             List<EditText> ets = new LinkedList<EditText>();
             ets.add(name);
@@ -291,14 +276,13 @@ public class ItemActivity extends BaseActivity
                 ets.get(i).setTypeface(Typeface.DEFAULT_BOLD);
             }
 
-
             //取消按钮和修改按钮，按钮的值都写在string文件中，此处使用java方式获取
             builder.setPositiveButton(ItemActivity.this.getResources().getText(R.string.cancel), new DialogInterface.OnClickListener(){
 
                     @Override
                     public void onClick(DialogInterface p1, int p2)
                     {
-                        Toast.makeText(ItemActivity.this, "新增已取消！", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ItemActivity.this, ItemActivity.this.getResources().getText(R.string.hint_add_cancel), Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -312,7 +296,7 @@ public class ItemActivity extends BaseActivity
                         item_name = name.getText().toString();
                         if (item_name.equals(""))
                         {
-                            Toast.makeText(ItemActivity.this,"名称不能为空",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ItemActivity.this, ItemActivity.this.getResources().getText(R.string.hint_name_null), Toast.LENGTH_SHORT).show();
 
                         }
                         else
@@ -322,7 +306,7 @@ public class ItemActivity extends BaseActivity
                             cursor.moveToFirst();
                             if (cursor.moveToPosition(0) != false)
                             {
-                                Toast.makeText(ItemActivity.this, "相同名称已存在，请更换名称！", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ItemActivity.this, ItemActivity.this.getResources().getText(R.string.hint_name_exist), Toast.LENGTH_SHORT).show();
                                 cursor.close();
                             }
                             else
@@ -358,7 +342,7 @@ public class ItemActivity extends BaseActivity
                                 insertValue.put("explain", item_explain);
                                 db.insert("item", null, insertValue);
                                 insertValue.clear();
-                                Toast.makeText(ItemActivity.this, "新数据插入成功!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ItemActivity.this, ItemActivity.this.getResources().getText(R.string.hint_add_success), Toast.LENGTH_SHORT).show();
                                 cursor.close();
                             }
                         }
@@ -367,7 +351,6 @@ public class ItemActivity extends BaseActivity
                 });
 
             builder.show();
-
 
         }
     }
@@ -379,9 +362,10 @@ public class ItemActivity extends BaseActivity
         Cursor cursor = null;
         SQLiteDatabase  quertdb = itemdb.getReadableDatabase();
         //根据父下拉表筛选类型
-        if (querytype.equals("物品类别"))
+        //spinner_choses[0]为物品类别,spinner_types[0]为所以类别,spinner_sources[0]为
+        if (querytype.equals(spinner_choses[0]))
         {
-            if (subtype.equals("所有类别"))
+            if (subtype.equals(spinner_types[0]))
             {
                 cursor = quertdb.query("item", null, null, null, null, null, null);
             }
@@ -392,7 +376,7 @@ public class ItemActivity extends BaseActivity
         }
         else
         {
-            if (subtype.equals("所有来源"))
+            if (subtype.equals(spinner_sources[0]))
             {
                 cursor = quertdb.query("item", null, null, null, null, null, null);
             }
@@ -406,7 +390,7 @@ public class ItemActivity extends BaseActivity
         cursor.moveToFirst();
         if (cursor.moveToPosition(0) != true)
         {  
-            Toast.makeText(this, "查询为空!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, ItemActivity.this.getResources().getText(R.string.hint_query_null), Toast.LENGTH_SHORT).show();
         }
         else
         {
@@ -468,14 +452,13 @@ public class ItemActivity extends BaseActivity
     }
 
     //item长按删除功能
-    public void DeleteItem(final String deleteName, final int pos,final View view)
+    public void DeleteItem(final String deleteName, final int pos, final View view)
     {
-        
         AlertDialog.Builder builder= new AlertDialog.Builder(ItemActivity.this);
-        builder.setTitle("删除");
+        builder.setTitle(ItemActivity.this.getResources().getText(R.string.delete));
         builder.setIcon(R.drawable.timg);
-        builder.setMessage("确定删除" + deleteName + "吗？");
-        builder.setPositiveButton("确定", new DialogInterface.OnClickListener(){
+        builder.setMessage(ItemActivity.this.getResources().getText(R.string.delete_confirm) + " " + deleteName + "？");
+        builder.setPositiveButton(ItemActivity.this.getResources().getText(R.string.confirm), new DialogInterface.OnClickListener(){
 
                 @Override
                 public void onClick(DialogInterface p1, int p2)
@@ -494,12 +477,12 @@ public class ItemActivity extends BaseActivity
                             item_explain = cursor.getString(cursor.getColumnIndex("explain"));
                         }while(cursor.moveToNext());
                     }
-                    
+
                     //数据库及Recycle中都需要进行删除
                     db.delete("item", "name=?", new String[]{deleteName});
                     adapter.removeItem(pos);
-                    
-                    Snackbar.make(view, "数据已删除", Snackbar.LENGTH_SHORT).setAction("撤销删除", new View.OnClickListener(){
+
+                    Snackbar.make(view, ItemActivity.this.getResources().getText(R.string.hint_delete_success), Snackbar.LENGTH_SHORT).setAction(ItemActivity.this.getResources().getText(R.string.hint_delete_undo), new View.OnClickListener(){
 
                             @Override
                             public void onClick(View p1)
@@ -515,18 +498,18 @@ public class ItemActivity extends BaseActivity
                                 undoValue.put("explain", item_explain);
                                 db.insert("item", null, undoValue);
                                 undoValue.clear();
-                                Toast.makeText(ItemActivity.this, "删除已取消!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ItemActivity.this, ItemActivity.this.getResources().getText(R.string.hint_delete_cancel), Toast.LENGTH_SHORT).show();
                                 refreshItems();
                             }
-                    }).show(); 
+                        }).show(); 
                     //关闭
                     cursor.close();
-                    
+
                 }
             });
 
 
-        builder.setNegativeButton("取消", new DialogInterface.OnClickListener(){
+        builder.setNegativeButton(ItemActivity.this.getResources().getText(R.string.cancel), new DialogInterface.OnClickListener(){
 
                 @Override
                 public void onClick(DialogInterface p1, int p2)
@@ -539,7 +522,6 @@ public class ItemActivity extends BaseActivity
     //item单击后查看详情
     public void Detail()
     {
-
         AlertDialog.Builder builder= new AlertDialog.Builder(ItemActivity.this);
         View detailView = LayoutInflater.from(ItemActivity.this).inflate(R.layout.itemsdetails, null);
         builder.setTitle(this.getResources().getText(R.string.detail));
@@ -552,7 +534,6 @@ public class ItemActivity extends BaseActivity
         final EditText price = detailView.findViewById(R.id.item_price);
         final EditText weight = detailView.findViewById(R.id.item_weight);
         final EditText explain = detailView.findViewById(R.id.item_explain);
-
         //修改数据库中取出数据后的字体大小和风格，尽量与旁边的TextView显示风格对齐
         List<EditText> ets = new LinkedList<EditText>();
         ets.add(name);
@@ -595,9 +576,8 @@ public class ItemActivity extends BaseActivity
                 editor.putFloat("item_weight", item_weight);
                 editor.putString("item_explain", item_explain);
                 editor.apply();  
-
-
             }while(cursor.moveToNext());
+            
         }
         cursor.close();
 
@@ -633,7 +613,7 @@ public class ItemActivity extends BaseActivity
                         Math.abs(item_weight - sp.getFloat("item_weight", 0)) < 0.00001 &&
                         item_explain.equals(sp.getString("item_explain", "")))
                     {
-                        Toast.makeText(ItemActivity.this, "请修改至少一个值！", Toast.LENGTH_SHORT).show();                     
+                        Toast.makeText(ItemActivity.this, ItemActivity.this.getResources().getText(R.string.hint_modify), Toast.LENGTH_SHORT).show();                     
                     }
                     else
                     {
@@ -651,13 +631,13 @@ public class ItemActivity extends BaseActivity
 
                 }
             });
-            
+
         builder.setNeutralButton(this.getResources().getText(R.string.buy), new DialogInterface.OnClickListener(){
 
                 @Override
                 public void onClick(DialogInterface p1, int p2)
                 {
-                    Toast.makeText(ItemActivity.this,"待实现！",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ItemActivity.this, ItemActivity.this.getResources().getText(R.string.hint_to_achieve), Toast.LENGTH_SHORT).show();
                 }
             });
         builder.show();
@@ -693,7 +673,5 @@ public class ItemActivity extends BaseActivity
 
             }).start();
     }
-
-
 
 }

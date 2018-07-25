@@ -36,29 +36,29 @@
 			android:id="@+id/item_name"/>
 
 	</LinearLayout>
-    
-    <LinearLayout
-        android:layout_below="@id/itemdetailsLinearLayout0"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/itemdetailsLinearLayout1">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/item_source"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textStyle="bold"
-            android:textSize="15sp"/>
+	<LinearLayout
+		android:layout_below="@id/itemdetailsLinearLayout0"
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+		android:id="@+id/itemdetailsLinearLayout1">
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:id="@+id/item_source"
-            android:ems="5"/>
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/item_source"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textStyle="bold"
+			android:textSize="15sp"/>
+
+		<EditText
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:inputType="text"
+			android:id="@+id/item_source"
+			android:ems="5"/>
 
 	</LinearLayout>
 
@@ -113,7 +113,7 @@
 		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="金币"
+			android:text="@string/gold"
 			android:textAppearance="?android:attr/textAppearanceMedium"
 			android:textSize="15sp"
 			android:textStyle="bold"/>
@@ -146,7 +146,7 @@
 		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="磅"
+			android:text="@string/pound"
 			android:textAppearance="?android:attr/textAppearanceMedium"
 			android:textSize="15sp"
 			android:textStyle="bold"/>

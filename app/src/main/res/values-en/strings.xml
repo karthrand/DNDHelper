@@ -16,6 +16,8 @@
     <string name="tab_book">Book</string>
     <string name="confirm">OK</string>
     <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="delete_confirm">Sure to delete</string>
     <string name="wait">Coming Soon！</string>
     <!-- General settings -->
     <string name="pref_header_general">General</string>
@@ -75,4 +77,22 @@
     <string name="operation">Operation:</string>
     <string name="filter">Filter:</string>
     <string name="query">Query</string>
+    <string name="gold">gold</string>
+    <string name="pound">pound</string>
+    <string name="imports">Import</string>
+	<string name="exports">Export</string>
+    <string name="imports_success">Import Success！</string>
+    <string name="imports_fail">Import Failed！</string>
+    <string name="exports_success">Export Success！</string>
+    <string name="exports_fail">Export Failed！</string>
+    <string name="hint_add_cancel">New Cancelled</string>
+    <string name="hint_name_null">The Name cannot be empty</string>
+    <string name="hint_name_exist">The same name already exists, please change the name！</string>
+    <string name="hint_add_success">The new data insert success！</string>
+    <string name="hint_query_null">The result is empty!</string>
+    <string name="hint_delete_success">Deleted successfully</string>
+    <string name="hint_delete_undo">Undo</string>
+    <string name="hint_delete_cancel">Canceled!</string>
+    <string name="hint_modify">Please change at least one value！</string>
+    <string name="hint_to_achieve">Comming soon！</string>
 </resources>

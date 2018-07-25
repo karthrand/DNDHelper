@@ -17,6 +17,8 @@
     <string name="tab_book">书籍</string>
     <string name="confirm">确定</string>
     <string name="cancel">取消</string>
+    <string name="delete">删除</string>
+    <string name="delete_confirm">确定删除</string>
     <string name="wait">敬请期待！</string>
     <!-- General settings -->
     <string name="pref_header_general">通用</string>
@@ -75,4 +77,22 @@
     <string name="operation">操作:</string>
     <string name="filter">筛选:</string>
     <string name="query">查询</string>
+	<string name="gold">金币</string>
+	<string name="pound">磅</string>
+    <string name="imports">导入</string>
+	<string name="exports">导出</string>
+    <string name="imports_success">导入成功！</string>
+    <string name="imports_fail">导入失败！</string>
+	<string name="exports_success">导出成功！</string>
+	<string name="exports_fail">导出失败！</string>
+    <string name="hint_add_cancel">新增已取消</string>
+    <string name="hint_name_null">名称不能为空</string>
+    <string name="hint_name_exist">相同名称已存在，请更换名称！</string>
+    <string name="hint_add_success">新数据插入成功！</string>
+    <string name="hint_query_null">查询为空!</string>
+    <string name="hint_delete_success">数据已删除</string>
+    <string name="hint_delete_undo">撤销删除</string>
+    <string name="hint_delete_cancel">删除已取消!</string>
+    <string name="hint_modify">请修改至少一个值！</string>
+    <string name="hint_to_achieve">待实现！</string>
 </resources>
