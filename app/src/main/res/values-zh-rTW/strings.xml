@@ -96,5 +96,6 @@
     <string name="hint_delete_undo">撤銷刪除</string>
     <string name="hint_delete_cancel">刪除已取消!</string>
     <string name="hint_modify">請修改至少壹個值！</string>
+    <string name="hint_modify_success">修改成功！</string>
     <string name="hint_to_achieve">待實現！</string>
 </resources>

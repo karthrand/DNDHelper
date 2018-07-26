@@ -21,6 +21,7 @@ import android.widget.*;
 import com.oude.dndhelper.activity.*;
 import android.view.*;
 import android.net.*;
+import com.oude.dndhelper.utils.*;
 
 public class MainActivity extends BaseActivity 
 {
@@ -34,6 +35,8 @@ public class MainActivity extends BaseActivity
     private BottomNavigationBar bottomNavigationBar;
     private int index;//点击的fragment的下标
     private int currentTabIndex=0;//当前的fragment的下标
+    public DBManager dbManager;
+	public static final String DB_NAME = "shop.db";//要导入的数据库文件
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -41,13 +44,17 @@ public class MainActivity extends BaseActivity
         initView();
         initBottomNavigationBar();
         initListener();
+        //导入db
+		dbManager = new DBManager(MainActivity.this);
+		dbManager.importDB(DB_NAME);
+        
     }
-    
+
     //toolbar加载菜单布局文件
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        getMenuInflater().inflate(R.menu.toolbar,menu);
+        getMenuInflater().inflate(R.menu.toolbar, menu);
         return true;
     }
 
@@ -130,12 +137,14 @@ public class MainActivity extends BaseActivity
         }
         return true;
     }
-    
+
     //根据不同的Fragment，帮助内容展示不同
-    private void gethelp(){
-        switch(index){
+    private void gethelp()
+    {
+        switch (index)
+        {
             case 0:
-                Toast.makeText(this,"功能1",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "功能1", Toast.LENGTH_SHORT).show();
                 break;
             case 1:
                 Uri uri = Uri.parse("http://oudezhinu.site/dungeons-dragons/rulebooks/");
@@ -143,10 +152,10 @@ public class MainActivity extends BaseActivity
                 startActivity(intent);
                 break;
             case 2:
-                Toast.makeText(this,"功能3",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "功能3", Toast.LENGTH_SHORT).show();
                 break;
             case 3:
-                Toast.makeText(this,"功能4",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "功能4", Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;
@@ -237,4 +246,5 @@ public class MainActivity extends BaseActivity
                 }
             });
     }
+
 }

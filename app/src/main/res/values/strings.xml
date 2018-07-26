@@ -94,5 +94,6 @@
     <string name="hint_delete_undo">撤销删除</string>
     <string name="hint_delete_cancel">删除已取消!</string>
     <string name="hint_modify">请修改至少一个值！</string>
+    <string name="hint_modify_success">修改成功！</string>
     <string name="hint_to_achieve">待实现！</string>
 </resources>

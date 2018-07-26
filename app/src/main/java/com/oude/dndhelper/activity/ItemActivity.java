@@ -36,12 +36,13 @@ import android.widget.AdapterView.*;
 import android.graphics.*;
 import android.view.*;
 
-
 public class ItemActivity extends BaseActivity
 {
     //数据库相关
     private DBListAdapter adapter;
     private ShopDatabaseHelper itemdb;
+    public static final String DB_NAME = "shop.db";
+    public static final String Table_NAME = "item";
     //用item表的name作为筛选条件，因此需要保证item的name的唯一性
     private String item_name,item_type,item_explain,item_source;
     private Float item_price,item_weight;
@@ -57,7 +58,7 @@ public class ItemActivity extends BaseActivity
     //使用数组获取array的值，不同语言下显获取到的不同
     ArrayList<String> spinner_chose,spinner_type,spinner_source;
     String[] spinner_choses,spinner_types,spinner_sources;
-
+ 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -92,7 +93,7 @@ public class ItemActivity extends BaseActivity
         //创建数据库，并指定数据库文件名称和版本，完成初始化
         //数据库文件会自动在/data/data/<package name>/databases/目录下创建
         //如果item.db数据库已创建，不会重复调用MyDatabaseHelper的onCreate()方法创建
-        itemdb = new ShopDatabaseHelper(this, "item.db", null, 1);
+        itemdb = new ShopDatabaseHelper(this, DB_NAME, null, 1);
         //以读写操作方式打开数据库
         itemdb.getWritableDatabase();
         initItems();
@@ -302,7 +303,7 @@ public class ItemActivity extends BaseActivity
                         else
                         {
                             //查询新增资料名称是否重复
-                            Cursor cursor = db.query("item", null, "name=?", new String[]{item_name}, null, null, null);
+                            Cursor cursor = db.query(Table_NAME, null, "name=?", new String[]{item_name}, null, null, null);
                             cursor.moveToFirst();
                             if (cursor.moveToPosition(0) != false)
                             {
@@ -340,7 +341,7 @@ public class ItemActivity extends BaseActivity
                                 insertValue.put("price", item_price);
                                 insertValue.put("weight", item_weight);
                                 insertValue.put("explain", item_explain);
-                                db.insert("item", null, insertValue);
+                                db.insert(Table_NAME, null, insertValue);
                                 insertValue.clear();
                                 Toast.makeText(ItemActivity.this, ItemActivity.this.getResources().getText(R.string.hint_add_success), Toast.LENGTH_SHORT).show();
                                 cursor.close();
@@ -367,22 +368,22 @@ public class ItemActivity extends BaseActivity
         {
             if (subtype.equals(spinner_types[0]))
             {
-                cursor = quertdb.query("item", null, null, null, null, null, null);
+                cursor = quertdb.query(Table_NAME, null, null, null, null, null, null);
             }
             else
             {
-                cursor = quertdb.query("item", null, "type=?", new String[]{subtype}, null, null, null);
+                cursor = quertdb.query(Table_NAME, null, "type=?", new String[]{subtype}, null, null, null);
             }
         }
         else
         {
             if (subtype.equals(spinner_sources[0]))
             {
-                cursor = quertdb.query("item", null, null, null, null, null, null);
+                cursor = quertdb.query(Table_NAME, null, null, null, null, null, null);
             }
             else
             {
-                cursor = quertdb.query("item", null, "source=?", new String[]{subtype}, null, null, null);
+                cursor = quertdb.query(Table_NAME, null, "source=?", new String[]{subtype}, null, null, null);
             }
         }
 
@@ -414,30 +415,12 @@ public class ItemActivity extends BaseActivity
         //以读写操作方式打开数据库
         SQLiteDatabase  sqlLite = itemdb.getReadableDatabase();
         //取出数据
-        Cursor cursor = sqlLite.query("item", null, null, null, null, null, null);
+        Cursor cursor = sqlLite.query(Table_NAME, null, null, null, null, null, null);
         cursor.moveToFirst();
         //取出所有的item项目时，如果数据库为空，则报错Indpex 0 requested, with a size of 0
         if (cursor.moveToPosition(0) != true)
         {  
-            //新增一条数据，以免报报空指针错误
-            ContentValues values = new ContentValues();
-            values.put("name", "背包");
-            values.put("type", "冒险物品");
-            values.put("price", 2.1);
-            values.put("weight", 2);
-            values.put("explain", "普通的背包");
-            values.put("source", "玩家手册");
-            sqlLite.insert("item", null, values);
-            values.clear();
-            values.put("name", "斩龙巨剑");
-            values.put("type", "技能职业");
-            values.put("price", 2.1);
-            values.put("weight", 2);
-            values.put("explain", "瞎编的");
-            values.put("source", "瞎编");
-            sqlLite.insert("item", null, values);
-            values.clear();
-            Toast.makeText(this, "无Item，已自动添加初始，请下拉刷新!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, ItemActivity.this.getResources().getText(R.string.hint_query_null), Toast.LENGTH_SHORT).show();
         }
         else
         {
@@ -465,7 +448,7 @@ public class ItemActivity extends BaseActivity
                 {
                     final SQLiteDatabase  db = itemdb.getReadableDatabase();
                     //现将要删除的内容获取,以取消
-                    Cursor cursor = db.query("item", null, "name=?", new String[]{deleteName}, null, null, null);
+                    Cursor cursor = db.query(Table_NAME, null, "name=?", new String[]{deleteName}, null, null, null);
                     if (cursor.moveToFirst())
                     {
                         do{
@@ -479,7 +462,7 @@ public class ItemActivity extends BaseActivity
                     }
 
                     //数据库及Recycle中都需要进行删除
-                    db.delete("item", "name=?", new String[]{deleteName});
+                    db.delete(Table_NAME, "name=?", new String[]{deleteName});
                     adapter.removeItem(pos);
 
                     Snackbar.make(view, ItemActivity.this.getResources().getText(R.string.hint_delete_success), Snackbar.LENGTH_SHORT).setAction(ItemActivity.this.getResources().getText(R.string.hint_delete_undo), new View.OnClickListener(){
@@ -496,7 +479,7 @@ public class ItemActivity extends BaseActivity
                                 undoValue.put("price", item_price);
                                 undoValue.put("weight", item_weight);
                                 undoValue.put("explain", item_explain);
-                                db.insert("item", null, undoValue);
+                                db.insert(Table_NAME, null, undoValue);
                                 undoValue.clear();
                                 Toast.makeText(ItemActivity.this, ItemActivity.this.getResources().getText(R.string.hint_delete_cancel), Toast.LENGTH_SHORT).show();
                                 refreshItems();
@@ -550,7 +533,7 @@ public class ItemActivity extends BaseActivity
 
         //从数据库获取值在详情中显示
         final SQLiteDatabase  db = itemdb.getReadableDatabase();
-        Cursor cursor = db.query("item", null, "name=?", new String[]{item_name}, null, null, null);
+        Cursor cursor = db.query(Table_NAME, null, "name=?", new String[]{item_name}, null, null, null);
         if (cursor.moveToFirst())
         {
             do{
@@ -625,8 +608,9 @@ public class ItemActivity extends BaseActivity
                         updateValue.put("price", item_price);
                         updateValue.put("weight", item_weight);
                         updateValue.put("explain", item_explain);
-                        db.update("item", updateValue, "name=?", new String[]{sp.getString("item_name", "")});
+                        db.update(Table_NAME, updateValue, "name=?", new String[]{sp.getString("item_name", "")});
                         updateValue.clear();
+                        Toast.makeText(ItemActivity.this, ItemActivity.this.getResources().getText(R.string.hint_modify_success), Toast.LENGTH_SHORT).show();
                     }
 
                 }
