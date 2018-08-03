@@ -64,11 +64,11 @@
     <string name="shop_armor">Armour Shop</string>
     <string name="shop_item">Variety Shop</string>
     <string name="shop_magic">Magic Shop</string>
-    <string name="item_name">Name:</string>
-    <string name="item_source">Source:</string>
-    <string name="item_type">Type:</string>
-    <string name="item_price">Price:</string>
-    <string name="item_weight">Weight:</string>
+    <string name="item_name">ItemName:</string>
+    <string name="item_source">ItemSource:</string>
+    <string name="item_type">ItemType:</string>
+    <string name="item_price">ItemPrice:</string>
+    <string name="item_weight">ItemWeight:</string>
     <string name="item_explain">More:</string>
     <string name="modify">Modify</string>
     <string name="buy">Buy</string>
@@ -96,4 +96,15 @@
     <string name="hint_modify">Please change at least one value！</string>
     <string name="hint_modify_success">Modify Success！</string>
     <string name="hint_to_achieve">Comming soon！</string>
+	<string name="hint_value_null">Certain values cannot be empty!</string>
+    <string name="armor_name">ArmorName:</string>
+    <string name="armor_source">ArmorSource:</string>
+    <string name="armor_type">ArmorType:</string>
+    <string name="armor_bonus">ArmorBonus:</string>
+    <string name="dex_bonus">MaximumDexBonus:</string>
+    <string name="armor_minus">ArmorCheckPenalty:</string>
+    <string name="magic_failue">ArcaneSpellFailure:</string>
+    <string name="armor_price">ArmorPrice:</string>
+    <string name="armor_weight">ArmorWeight:</string>
+    <string name="armor_explain">More:</string>
 </resources>
