@@ -14,7 +14,7 @@ import com.oude.dndhelper.activity.*;
 public class ShopFragment extends Fragment implements OnClickListener
 {
 
-	private Button item;
+	private Button item,weapon,armor;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
@@ -34,7 +34,12 @@ public class ShopFragment extends Fragment implements OnClickListener
 	
 	private void initView(){
 		item = (Button)getActivity().findViewById(R.id.shop_item);
+        weapon = (Button)getActivity().findViewById(R.id.shop_weapon);
+        armor = (Button)getActivity().findViewById(R.id.shop_armor);
 		item.setOnClickListener(this);
+        weapon.setOnClickListener(this);
+        armor.setOnClickListener(this);
+        
 	}
 	
 
@@ -46,8 +51,16 @@ public class ShopFragment extends Fragment implements OnClickListener
 			case R.id.shop_item:
 				Intent intent =new Intent(getActivity(), ItemActivity.class);
 				startActivity(intent);
+                break;
+            case R.id.shop_weapon:
+                Intent intent1 =new Intent(getActivity(), WeaponActivity.class);
+				startActivity(intent1);
+                break;
+            case R.id.shop_armor:
+                Intent intent2 =new Intent(getActivity(), ArmorActivity.class);
+				startActivity(intent2);
 				break;
-				default:
+		    default:
 				break;
 		}
 	}

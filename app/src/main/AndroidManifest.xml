@@ -43,6 +43,16 @@
             android:theme="@style/AppCompatTheme"
             android:label="@string/shop_item">
         </activity>
+        <activity 
+            android:name=".activity.WeaponActivity"
+            android:theme="@style/AppCompatTheme"
+            android:label="@string/shop_weapon">
+        </activity>
+        <activity 
+            android:name=".activity.ArmorActivity"
+            android:theme="@style/AppCompatTheme"
+            android:label="@string/shop_armor">
+        </activity>
     </application>
 
 </manifest>

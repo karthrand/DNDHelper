@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="spinner_chose">
+    <string-array name="spinner_chose_item">
         <item>Categories</item>
         <item>Source</item>
     </string-array>
-    <string-array name="spinner_type">
+    <string-array name="spinner_type_item">
         <item>All Type</item>
         <item>Adventure</item>
         <item>Mounts</item>
@@ -14,7 +14,62 @@
         <item>Accommodation</item>
         <item>Self-Designed</item>
     </string-array>
-    <string-array name="spinner_source">
+    <string-array name="spinner_source_item">
+        <item>All Source</item>
+        <item>PHB</item>
+        <item>Self-Designed</item>
+    </string-array>
+    <!--武器相关-->
+    <string-array name="spinner_chose_weapon">
+        <item>Weapen Type</item>
+        <item>Attack Type</item>
+        <item>Usage Type</item>
+        <item>Damage Type</item>
+        <item>Source</item>     
+    </string-array>
+    <string-array name="spinner_type_weapon_type">
+        <item>All Type</item>
+        <item>Simple</item>
+        <item>Martial</item>
+        <item>Special</item>
+    </string-array>
+    <string-array name="spinner_type_attack_type">
+        <item>All Type</item>
+        <item>Melee</item>
+        <item>Ranged</item>
+    </string-array>
+    <string-array name="spinner_type_use_type">
+        <item>All Type</item>
+        <item>Light</item>
+        <item>Two-Handed</item>
+        <item>One-Handed</item>
+        <item>NONE</item>
+    </string-array>
+    <string-array name="spinner_type_damage_type">
+        <item>All Type</item>
+        <item>Slashing</item>
+        <item>Bludgeoning</item>
+        <item>Piercing</item>
+    </string-array>
+    <string-array name="spinner_source_weapon">
+        <item>All Source</item>
+        <item>PHB</item>
+        <item>Self-Designed</item>
+    </string-array>
+    <!--盔甲相关-->
+    <string-array name="spinner_chose_armor">
+        <item>Armor Type</item>
+        <item>Source</item>
+    </string-array>
+    <string-array name="spinner_type_armor">
+        <item>All Type</item>
+        <item>Light</item>
+        <item>Medium</item>
+        <item>Heavy</item>
+        <item>Shield</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="spinner_source_armor">
         <item>All Source</item>
         <item>PHB</item>
         <item>Self-Designed</item>

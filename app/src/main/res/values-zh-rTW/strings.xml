@@ -62,7 +62,7 @@
     <string name="Error_Intenet">未知網絡異常！</string>
     <string name="Error_BadGatway">網絡無法連接，請檢查網絡！</string>
     <!--  Fragment  -->
-    <string name="shop_weapen">武器店</string>
+    <string name="shop_weapon">武器店</string>
     <string name="shop_armor">盔甲店</string>
     <string name="shop_item">雜貨鋪</string>
     <string name="shop_magic">奧法商會</string>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="spinner_chose">
+    <!--物品相关-->
+    <string-array name="spinner_chose_item">
         <item>物品类别</item>
         <item>资料来源</item>
     </string-array>
-    <string-array name="spinner_type">
+    <string-array name="spinner_type_item">
         <item>所有类别</item>
         <item>冒险物品</item>
         <item>坐骑相关</item>
@@ -14,7 +15,62 @@
         <item>饮食住宿</item>
         <item>玩家自设</item>
     </string-array>
-    <string-array name="spinner_source">
+    <string-array name="spinner_source_item">
+        <item>所有来源</item>
+        <item>玩家手册</item>
+        <item>玩家自设</item>      
+    </string-array>
+    <!--武器相关-->
+    <string-array name="spinner_chose_weapon">
+        <item>武器类型</item>
+        <item>攻击类型</item>
+        <item>使用类型</item>
+        <item>伤害类型</item>
+        <item>资料来源</item>     
+    </string-array>
+    <string-array name="spinner_type_weapon_type">
+        <item>所有类别</item>
+        <item>简易</item>
+        <item>军用</item>
+        <item>异种</item>
+    </string-array>
+    <string-array name="spinner_type_attack_type">
+        <item>所有类别</item>
+        <item>近战</item>
+        <item>远程</item>
+    </string-array>
+    <string-array name="spinner_type_use_type">
+        <item>所有类别</item>
+        <item>轻型</item>
+        <item>双手</item>
+        <item>单手</item>
+        <item>NONE</item>
+    </string-array>
+    <string-array name="spinner_type_damage_type">
+        <item>所有类别</item>
+        <item>挥砍</item>
+        <item>钝击</item>
+        <item>穿刺</item>
+    </string-array>
+    <string-array name="spinner_source_weapon">
+        <item>所有来源</item>
+        <item>玩家手册</item>
+        <item>玩家自设</item>
+    </string-array>
+    <!--盔甲相关-->
+    <string-array name="spinner_chose_armor">
+        <item>盔甲类型</item>
+        <item>资料来源</item>
+    </string-array>
+    <string-array name="spinner_type_armor">
+        <item>所有类别</item>
+        <item>轻型</item>
+        <item>中型</item>
+        <item>重型</item>
+        <item>盾牌</item>
+        <item>其它</item>
+    </string-array>
+    <string-array name="spinner_source_armor">
         <item>所有来源</item>
         <item>玩家手册</item>
         <item>玩家自设</item>

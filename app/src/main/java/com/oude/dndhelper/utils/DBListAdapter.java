@@ -42,7 +42,7 @@ public class DBListAdapter extends RecyclerView.Adapter<DBListAdapter.ViewHolder
 	@Override
 	public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
 	{
-		View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemslist, parent, false);
+		View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemlist, parent, false);
 		final ViewHolder holder = new ViewHolder(view);
 		return holder;
 	}

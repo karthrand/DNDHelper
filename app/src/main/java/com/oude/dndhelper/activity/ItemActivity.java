@@ -35,12 +35,13 @@ import android.support.v7.widget.*;
 import android.widget.AdapterView.*;
 import android.graphics.*;
 import android.view.*;
+import android.text.*;
 
 public class ItemActivity extends BaseActivity
 {
     //数据库相关
     private DBListAdapter adapter;
-    private ShopDatabaseHelper itemdb;
+    private ShopDatabaseHelper shopdb;
     public static final String DB_NAME = "shop.db";
     public static final String Table_NAME = "item";
     //用item表的name作为筛选条件，因此需要保证item的name的唯一性
@@ -58,7 +59,7 @@ public class ItemActivity extends BaseActivity
     //使用数组获取array的值，不同语言下显获取到的不同
     ArrayList<String> spinner_chose,spinner_type,spinner_source;
     String[] spinner_choses,spinner_types,spinner_sources;
- 
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -81,7 +82,7 @@ public class ItemActivity extends BaseActivity
         sp_fixed = (Spinner) findViewById(R.id.item_Spinner1);
         sp_change = (Spinner) findViewById(R.id.item_Spinner2);
         //下拉刷新绑定控件
-        swipeRefresh = (SwipeRefreshLayout) findViewById(R.id.item_swipe_refresh);
+        swipeRefresh = (SwipeRefreshLayout) findViewById(R.id.shop_swipe_refresh);
         swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener(){
                 @Override
                 public void onRefresh()
@@ -93,13 +94,13 @@ public class ItemActivity extends BaseActivity
         //创建数据库，并指定数据库文件名称和版本，完成初始化
         //数据库文件会自动在/data/data/<package name>/databases/目录下创建
         //如果item.db数据库已创建，不会重复调用MyDatabaseHelper的onCreate()方法创建
-        itemdb = new ShopDatabaseHelper(this, DB_NAME, null, 1);
+        shopdb = new ShopDatabaseHelper(this, DB_NAME, null, 1);
         //以读写操作方式打开数据库
-        itemdb.getWritableDatabase();
+        shopdb.getWritableDatabase();
         initItems();
 
         //Recycle实现
-        RecyclerView recycleView = (RecyclerView) findViewById(R.id.item_RecyclerView1);
+        RecyclerView recycleView = (RecyclerView) findViewById(R.id.shop_RecyclerView1);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recycleView.setLayoutManager(layoutManager);
         adapter = new DBListAdapter(ItemActivity.this, list);
@@ -108,7 +109,7 @@ public class ItemActivity extends BaseActivity
 
         //下拉表
         //父下拉表，下拉内容固定
-        String[] fix =  this.getResources().getStringArray(R.array.spinner_chose);
+        String[] fix =  this.getResources().getStringArray(R.array.spinner_chose_item);
         adapter_fixed = new ArrayAdapter<String>(this, R.layout.spinner_item, fix);
         adapter_fixed.setDropDownViewResource(R.layout.spinner_down);
         sp_fixed.setAdapter(adapter_fixed);
@@ -121,13 +122,13 @@ public class ItemActivity extends BaseActivity
 
         //使用数据获取不同语言下的各种string-array
         spinner_chose = new ArrayList<>();     
-        spinner_choses = getResources().getStringArray(R.array.spinner_chose);
+        spinner_choses = getResources().getStringArray(R.array.spinner_chose_item);
 
         spinner_chose = new ArrayList<>();     
-        spinner_types = getResources().getStringArray(R.array.spinner_type);
+        spinner_types = getResources().getStringArray(R.array.spinner_type_item);
 
         spinner_chose = new ArrayList<>();     
-        spinner_sources = getResources().getStringArray(R.array.spinner_source);
+        spinner_sources = getResources().getStringArray(R.array.spinner_source_item);
 
 	}
 
@@ -194,7 +195,7 @@ public class ItemActivity extends BaseActivity
     {
         super.onDestroy();
         //关闭数据库，一个Activity中可以只使用一个数据库实例，节省性能
-        itemdb.close();
+        shopdb.close();
 
     }
 
@@ -208,14 +209,14 @@ public class ItemActivity extends BaseActivity
             switch (p3)
             {
                 case 0: 
-                    change =  ItemActivity.this.getResources().getStringArray(R.array.spinner_type);
+                    change =  ItemActivity.this.getResources().getStringArray(R.array.spinner_type_item);
                     adapter_change = new ArrayAdapter<String>(ItemActivity.this, R.layout.spinner_item, change);
                     adapter_change.setDropDownViewResource(R.layout.spinner_down);
                     sp_change.setAdapter(adapter_change);
 
                     break;
                 case 1:
-                    change =  ItemActivity.this.getResources().getStringArray(R.array.spinner_source);
+                    change =  ItemActivity.this.getResources().getStringArray(R.array.spinner_source_item);
                     adapter_change = new ArrayAdapter<String>(ItemActivity.this, R.layout.spinner_item, change);
                     adapter_change.setDropDownViewResource(R.layout.spinner_down);
                     sp_change.setAdapter(adapter_change);
@@ -255,7 +256,7 @@ public class ItemActivity extends BaseActivity
             //使用自定义xml
             builder.setView(detailView);
             //打开数据库
-            final SQLiteDatabase  db = itemdb.getReadableDatabase();
+            final SQLiteDatabase  db = shopdb.getReadableDatabase();
             //详情页面view加载和控件绑定
             final EditText name = detailView.findViewById(R.id.item_name);
             final EditText source = detailView.findViewById(R.id.item_source);
@@ -313,24 +314,24 @@ public class ItemActivity extends BaseActivity
                             else
                             {
                                 //name不冲突后获取
-                                item_source = source.getText().toString();
-                                item_type = type.getText().toString();
+                                item_source = source.getText().toString().trim();
+                                item_type = type.getText().toString().trim();
                                 //输入空时赋予0,否则报错
-                                if (price.getText().toString().equals(""))
+                                if (price.getText().toString().trim().equals(""))
                                 {
                                     item_price = (float)0;
                                 }
                                 else
                                 {
-                                    item_price = Float.parseFloat(price.getText().toString());
+                                    item_price = Float.parseFloat(price.getText().toString().trim());
                                 }
-                                if (weight.getText().toString().equals(""))
+                                if (weight.getText().toString().trim().equals(""))
                                 {
                                     item_weight = (float)0;
                                 }
                                 else
                                 {
-                                    item_weight = Float.parseFloat(weight.getText().toString());
+                                    item_weight = Float.parseFloat(weight.getText().toString().trim());
                                 }
                                 item_explain = explain.getText().toString();
                                 //更新数据库
@@ -361,7 +362,7 @@ public class ItemActivity extends BaseActivity
     {
         list.clear();
         Cursor cursor = null;
-        SQLiteDatabase  quertdb = itemdb.getReadableDatabase();
+        SQLiteDatabase  quertdb = shopdb.getReadableDatabase();
         //根据父下拉表筛选类型
         //spinner_choses[0]为物品类别,spinner_types[0]为所以类别,spinner_sources[0]为
         if (querytype.equals(spinner_choses[0]))
@@ -413,7 +414,7 @@ public class ItemActivity extends BaseActivity
     {
         list.clear();
         //以读写操作方式打开数据库
-        SQLiteDatabase  sqlLite = itemdb.getReadableDatabase();
+        SQLiteDatabase  sqlLite = shopdb.getReadableDatabase();
         //取出数据
         Cursor cursor = sqlLite.query(Table_NAME, null, null, null, null, null, null);
         cursor.moveToFirst();
@@ -446,7 +447,7 @@ public class ItemActivity extends BaseActivity
                 @Override
                 public void onClick(DialogInterface p1, int p2)
                 {
-                    final SQLiteDatabase  db = itemdb.getReadableDatabase();
+                    final SQLiteDatabase  db = shopdb.getReadableDatabase();
                     //现将要删除的内容获取,以取消
                     Cursor cursor = db.query(Table_NAME, null, "name=?", new String[]{deleteName}, null, null, null);
                     if (cursor.moveToFirst())
@@ -532,7 +533,7 @@ public class ItemActivity extends BaseActivity
         }
 
         //从数据库获取值在详情中显示
-        final SQLiteDatabase  db = itemdb.getReadableDatabase();
+        final SQLiteDatabase  db = shopdb.getReadableDatabase();
         Cursor cursor = db.query(Table_NAME, null, "name=?", new String[]{item_name}, null, null, null);
         if (cursor.moveToFirst())
         {
@@ -560,7 +561,7 @@ public class ItemActivity extends BaseActivity
                 editor.putString("item_explain", item_explain);
                 editor.apply();  
             }while(cursor.moveToNext());
-            
+
         }
         cursor.close();
 
@@ -579,38 +580,48 @@ public class ItemActivity extends BaseActivity
                 @Override
                 public void onClick(DialogInterface p1, int p2)
                 {
-                    //修改检查，检查是否有更新
-                    //重新获取EditText的值
-                    item_name = name.getText().toString();
-                    item_source = source.getText().toString();
-                    item_type = type.getText().toString();
-                    item_price = Float.parseFloat(price.getText().toString());
-                    item_weight = Float.parseFloat(weight.getText().toString());
-                    item_explain = explain.getText().toString();
-                    //将新的值和之前保存的比较，无改变则不更新数据库
-                    SharedPreferences sp = getSharedPreferences("items", MODE_PRIVATE);
-                    if (item_name.equals(sp.getString("item_name", "")) && 
-                        item_source.equals(sp.getString("item_source", "")) && 
-                        item_type.equals(sp.getString("item_type", ""))  &&
-                        Math.abs(item_price - sp.getFloat("item_price", 0)) < 0.00001  &&
-                        Math.abs(item_weight - sp.getFloat("item_weight", 0)) < 0.00001 &&
-                        item_explain.equals(sp.getString("item_explain", "")))
+                    //检查Interget和float的值是否为空
+                    if (TextUtils.isEmpty(price.getText().toString().trim()) ||
+                        TextUtils.isEmpty(weight.getText().toString().trim())
+                        )
                     {
-                        Toast.makeText(ItemActivity.this, ItemActivity.this.getResources().getText(R.string.hint_modify), Toast.LENGTH_SHORT).show();                     
+                        Toast.makeText(ItemActivity.this, ItemActivity.this.getResources().getText(R.string.hint_value_null), Toast.LENGTH_SHORT).show();
                     }
                     else
                     {
-                        //更新数据库
-                        ContentValues updateValue = new ContentValues();
-                        updateValue.put("name", item_name);
-                        updateValue.put("source", item_source);
-                        updateValue.put("type", item_type);
-                        updateValue.put("price", item_price);
-                        updateValue.put("weight", item_weight);
-                        updateValue.put("explain", item_explain);
-                        db.update(Table_NAME, updateValue, "name=?", new String[]{sp.getString("item_name", "")});
-                        updateValue.clear();
-                        Toast.makeText(ItemActivity.this, ItemActivity.this.getResources().getText(R.string.hint_modify_success), Toast.LENGTH_SHORT).show();
+                        //修改检查，检查是否有更新
+                        //重新获取EditText的值
+                        item_name = name.getText().toString().trim();
+                        item_source = source.getText().toString().trim();
+                        item_type = type.getText().toString().trim();
+                        item_price = Float.parseFloat(price.getText().toString().trim());
+                        item_weight = Float.parseFloat(weight.getText().toString().trim());
+                        item_explain = explain.getText().toString();
+                        //将新的值和之前保存的比较，无改变则不更新数据库
+                        SharedPreferences sp = getSharedPreferences("items", MODE_PRIVATE);
+                        if (item_name.equals(sp.getString("item_name", "")) && 
+                            item_source.equals(sp.getString("item_source", "")) && 
+                            item_type.equals(sp.getString("item_type", ""))  &&
+                            Math.abs(item_price - sp.getFloat("item_price", 0)) < 0.00001  &&
+                            Math.abs(item_weight - sp.getFloat("item_weight", 0)) < 0.00001 &&
+                            item_explain.equals(sp.getString("item_explain", "")))
+                        {
+                            Toast.makeText(ItemActivity.this, ItemActivity.this.getResources().getText(R.string.hint_modify), Toast.LENGTH_SHORT).show();                     
+                        }
+                        else
+                        {
+                            //更新数据库
+                            ContentValues updateValue = new ContentValues();
+                            updateValue.put("name", item_name);
+                            updateValue.put("source", item_source);
+                            updateValue.put("type", item_type);
+                            updateValue.put("price", item_price);
+                            updateValue.put("weight", item_weight);
+                            updateValue.put("explain", item_explain);
+                            db.update(Table_NAME, updateValue, "name=?", new String[]{sp.getString("item_name", "")});
+                            updateValue.clear();
+                            Toast.makeText(ItemActivity.this, ItemActivity.this.getResources().getText(R.string.hint_modify_success), Toast.LENGTH_SHORT).show();
+                        }
                     }
 
                 }
@@ -637,7 +648,7 @@ public class ItemActivity extends BaseActivity
                     try
                     {
                         //因为本地刷新速度太快看不到效果，延迟下
-                        Thread.sleep(500);
+                        Thread.sleep(100);
                     }
                     catch (InterruptedException e)
                     {

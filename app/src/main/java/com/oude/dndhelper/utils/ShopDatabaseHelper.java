@@ -30,8 +30,8 @@ public class ShopDatabaseHelper extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase p1)
     {
         //创建数据库,使用上面的item字符常量
-        p1.execSQL(CREATE_ITEM);
-        Toast.makeText(mContext,"item数据库创建",Toast.LENGTH_SHORT).show();
+        //p1.execSQL(CREATE_ITEM);
+       // Toast.makeText(mContext,"item数据库创建",Toast.LENGTH_SHORT).show();
     }
 
     @Override

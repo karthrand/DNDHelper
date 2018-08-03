@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+    
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/weapon_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+		app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        
+
+	<LinearLayout
+        android:layout_below="@id/weapon_toolbar"
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/shopweaponLinearLayout1">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/filter"
+			android:textSize="15sp"
+			android:textStyle="bold"
+			android:layout_marginLeft="5dp"/>
+
+		<android.support.v7.widget.AppCompatSpinner
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:spinnerMode="dropdown"
+			android:popupBackground="@android:color/white"
+			android:id="@+id/weapon_Spinner1"
+			android:paddingLeft="5dp"
+			android:overlapAnchor="false"
+			android:dropDownHorizontalOffset="-50dp"/>
+
+		<android.support.v7.widget.AppCompatSpinner
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:spinnerMode="dropdown"
+			android:popupBackground="@android:color/white"
+			android:paddingLeft="5dp"
+			android:dropDownHorizontalOffset="-50dp"
+			android:overlapAnchor="false"
+			android:id="@+id/weapon_Spinner2"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/shopweaponLinearLayout1"
+		android:id="@+id/shopweaponLinearLayout2">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/operation"
+			android:textSize="15sp"
+			android:textStyle="bold"
+			android:layout_marginLeft="5dp"/>
+
+		<Button
+			style="?android:attr/borderlessButtonStyle"
+			android:textAllCaps="false"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/query"
+			android:layout_marginLeft="10dp"
+			android:id="@+id/weapon_query"
+			android:textStyle="bold"
+			android:textSize="15sp"/>
+
+		<Button
+			style="?android:attr/borderlessButtonStyle"
+			android:textAllCaps="false"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/insert"
+			android:id="@+id/weapon_insert"
+			android:layout_marginLeft="10dp"
+			android:textStyle="bold"
+			android:textSize="15sp"/>
+
+	</LinearLayout>
+
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:layout_below="@id/shopweaponLinearLayout2"
+		android:id="@+id/shopweaponView1"
+		android:background="@color/black"/>
+    
+    <include android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:layout_below="@id/shopweaponView1"
+             layout="@layout/recycleview" />
+
+</RelativeLayout>
+

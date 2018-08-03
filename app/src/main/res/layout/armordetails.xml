@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:layout_gravity="top"
+	android:id="@+id/armordetailsRelativeLayout1">
+
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:background="#99CCFF"
+		android:id="@+id/armordetailsView1"/>
+
+	<LinearLayout
+		android:layout_below="@id/armordetailsView1"
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+		android:id="@+id/armordetailsLinearLayout0">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/armor_name"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textStyle="bold"
+			android:textSize="15sp"/>
+
+		<EditText
+			android:layout_width="wrap_content"
+			android:ems="5"
+			android:layout_height="wrap_content"
+			android:inputType="text"
+			android:id="@+id/armor_name"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_below="@id/armordetailsLinearLayout0"
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+		android:id="@+id/armordetailsLinearLayout1">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/armor_source"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textStyle="bold"
+			android:textSize="15sp"/>
+
+		<EditText
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:inputType="text"
+			android:id="@+id/armor_source"
+			android:ems="5"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_below="@id/armordetailsLinearLayout1"
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+		android:id="@+id/armordetailsLinearLayout2">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/armor_type"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textStyle="bold"
+			android:textSize="15sp"/>
+
+		<EditText
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:inputType="text"
+			android:id="@+id/armor_type"
+			android:ems="5"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_below="@id/armordetailsLinearLayout2"
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+		android:id="@+id/armordetailsLinearLayout3">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/armor_bonus"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textStyle="bold"
+			android:textSize="15sp"/>
+
+		<EditText
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:inputType="numberSigned"
+			android:id="@+id/armor_bonus"
+			android:ems="5"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_below="@id/armordetailsLinearLayout3"
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+		android:id="@+id/armordetailsLinearLayout4">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/dex_bonus"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textStyle="bold"
+			android:textSize="15sp"/>
+
+		<EditText
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:inputType="numberSigned"
+			android:id="@+id/dex_bonus"
+			android:ems="5"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_below="@id/armordetailsLinearLayout4"
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+		android:id="@+id/armordetailsLinearLayout5">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/armor_minus"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textStyle="bold"
+			android:textSize="15sp"/>
+
+		<EditText
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:inputType="numberSigned"
+			android:id="@+id/armor_minus"
+			android:ems="5"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_below="@id/armordetailsLinearLayout5"
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+		android:id="@+id/armordetailsLinearLayout6">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/magic_failue"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textStyle="bold"
+			android:textSize="15sp"/>
+
+		<EditText
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:inputType="numberSigned"
+			android:id="@+id/magic_failue"
+			android:ems="5"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="%"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textSize="15sp"
+			android:textStyle="bold"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+		android:layout_below="@id/armordetailsLinearLayout6"
+		android:id="@+id/armordetailsLinearLayout7">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/armor_price"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textStyle="bold"
+			android:textSize="15sp"/>
+
+		<EditText
+			android:layout_width="wrap_content"
+			android:ems="5"
+			android:layout_height="wrap_content"
+			android:inputType="numberDecimal"
+			android:id="@+id/armor_price"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/gold"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textSize="15sp"
+			android:textStyle="bold"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+		android:layout_below="@id/armordetailsLinearLayout7"
+		android:id="@+id/armordetailsLinearLayout8">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/armor_weight"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textStyle="bold"
+			android:textSize="15sp"/>
+
+		<EditText
+			android:layout_width="wrap_content"
+			android:ems="5"
+			android:layout_height="wrap_content"
+			android:inputType="numberDecimal"
+			android:id="@+id/armor_weight"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/pound"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textSize="15sp"
+			android:textStyle="bold"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_below="@id/armordetailsLinearLayout8"
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+		android:id="@+id/armordetailsLinearLayout9">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/armor_explain"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textStyle="bold"
+			android:textSize="15sp"/>
+
+		<EditText
+			android:layout_width="match_parent"
+			android:ems="0"
+			android:layout_height="wrap_content"
+			android:inputType="text|textMultiLine"
+			android:id="@+id/armor_explain"/>
+
+	</LinearLayout>
+
+</RelativeLayout>
+
