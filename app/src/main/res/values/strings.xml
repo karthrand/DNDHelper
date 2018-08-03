@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">DND辅助器</string>
     <string name="author">欧德之怒</string>
     <string name="website">oudezhinu.site</string>
@@ -107,5 +106,17 @@
     <string name="armor_price">防具价格:</string>
     <string name="armor_weight">防具重量:</string>
     <string name="armor_explain">防具介绍:</string>
-    
+	<string name="weapon_name">武器名称:</string>
+    <string name="weapon_source">武器来源:</string>
+    <string name="weapon_type">武器类型:</string>
+    <string name="attack_type">攻击类型:</string>
+    <string name="use_type">使用类型:</string>
+    <string name="damage_type">伤害类型:</string>
+    <string name="damage_s">伤害(S):</string>
+	<string name="damage_m">伤害(M):</string>
+	<string name="weapon_crit">武器重击:</string>
+	<string name="weapon_range">武器射程:</string>
+    <string name="weapon_price">武器价格:</string>
+    <string name="weapon_weight">武器重量:</string>
+    <string name="weapon_explain">武器介绍:</string>
 </resources>

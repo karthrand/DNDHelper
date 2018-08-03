@@ -109,4 +109,17 @@
     <string name="armor_price">防具價格:</string>
     <string name="armor_weight">防具重量:</string>
     <string name="armor_explain">防具介紹:</string>
+	<string name="weapon_name">武器名稱:</string>
+    <string name="weapon_source">武器來源:</string>
+    <string name="weapon_type">武器類型:</string>
+    <string name="attack_type">攻击类型:</string>
+    <string name="use_type">使用類型:</string>
+    <string name="damage_type">傷害類型:</string>
+    <string name="damage_s">傷害(S):</string>
+	<string name="damage_m">傷害(M):</string>
+	<string name="weapon_crit">武器重擊:</string>
+	<string name="weapon_range">武器射程:</string>
+    <string name="weapon_price">武器價格:</string>
+    <string name="weapon_weight">武器重量:</string>
+    <string name="weapon_explain">武器介紹:</string>
 </resources>

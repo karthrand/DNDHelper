@@ -123,13 +123,8 @@ public class ArmorActivity extends BaseActivity
         bn_insert.setOnClickListener(new insertListener());
 
         //使用数据获取不同语言下的各种string-array
-        spinner_chose = new ArrayList<>();     
         spinner_choses = getResources().getStringArray(R.array.spinner_chose_armor);
-
-        spinner_chose = new ArrayList<>();     
-        spinner_types = getResources().getStringArray(R.array.spinner_type_armor);
-
-        spinner_chose = new ArrayList<>();     
+        spinner_types = getResources().getStringArray(R.array.spinner_type_armor); 
         spinner_sources = getResources().getStringArray(R.array.spinner_source_armor);      
 
     }

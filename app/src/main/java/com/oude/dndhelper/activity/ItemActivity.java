@@ -120,14 +120,9 @@ public class ItemActivity extends BaseActivity
         //插入按钮
         bn_insert.setOnClickListener(new insertListener());
 
-        //使用数据获取不同语言下的各种string-array
-        spinner_chose = new ArrayList<>();     
-        spinner_choses = getResources().getStringArray(R.array.spinner_chose_item);
-
-        spinner_chose = new ArrayList<>();     
-        spinner_types = getResources().getStringArray(R.array.spinner_type_item);
-
-        spinner_chose = new ArrayList<>();     
+        //使用数据获取不同语言下的各种string-array 
+        spinner_choses = getResources().getStringArray(R.array.spinner_chose_item);   
+        spinner_types = getResources().getStringArray(R.array.spinner_type_item); 
         spinner_sources = getResources().getStringArray(R.array.spinner_source_item);
 
 	}

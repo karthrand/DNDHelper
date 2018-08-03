@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context="com.oude.dndhelper.activity.WeaponActivity">
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_gravity="top"
+		android:id="@+id/weapondetailsRelativeLayout1">
+
+		<View
+			android:layout_width="match_parent"
+			android:layout_height="1dp"
+			android:background="#99CCFF"
+			android:id="@+id/weapondetailsView1"/>
+
+		<LinearLayout
+			android:layout_below="@id/weapondetailsView1"
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+			android:id="@+id/weapondetailsLinearLayout0">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/weapon_name"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:textStyle="bold"
+				android:textSize="15sp"/>
+
+			<EditText
+				android:layout_width="wrap_content"
+				android:ems="5"
+				android:layout_height="wrap_content"
+				android:inputType="text"
+				android:id="@+id/weapon_name"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_below="@id/weapondetailsLinearLayout0"
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+			android:id="@+id/weapondetailsLinearLayout1">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/weapon_source"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:textStyle="bold"
+				android:textSize="15sp"/>
+
+			<EditText
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:inputType="text"
+				android:id="@+id/weapon_source"
+				android:ems="5"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_below="@id/weapondetailsLinearLayout1"
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+			android:id="@+id/weapondetailsLinearLayout2">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/weapon_type"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:textStyle="bold"
+				android:textSize="15sp"/>
+
+			<EditText
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:inputType="text"
+				android:id="@+id/weapon_type"
+				android:ems="5"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_below="@id/weapondetailsLinearLayout2"
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+			android:id="@+id/weapondetailsLinearLayout3">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/attack_type"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:textStyle="bold"
+				android:textSize="15sp"/>
+
+			<EditText
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:inputType="text"
+				android:id="@+id/attack_type"
+				android:ems="5"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_below="@id/weapondetailsLinearLayout3"
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+			android:id="@+id/weapondetailsLinearLayout4">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/use_type"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:textStyle="bold"
+				android:textSize="15sp"/>
+
+			<EditText
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:inputType="text"
+				android:id="@+id/use_type"
+				android:ems="5"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_below="@id/weapondetailsLinearLayout4"
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+			android:id="@+id/weapondetailsLinearLayout5">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/damage_type"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:textStyle="bold"
+				android:textSize="15sp"/>
+
+			<EditText
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:inputType="text"
+				android:id="@+id/damage_type"
+				android:ems="5"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_below="@id/weapondetailsLinearLayout5"
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+			android:id="@+id/weapondetailsLinearLayout6">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/damage_s"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:textStyle="bold"
+				android:textSize="15sp"/>
+
+			<EditText
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:inputType="text"
+				android:id="@+id/damage_s"
+				android:ems="5"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_below="@id/weapondetailsLinearLayout6"
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+			android:id="@+id/weapondetailsLinearLayout7">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/damage_m"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:textStyle="bold"
+				android:textSize="15sp"/>
+
+			<EditText
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:inputType="text"
+				android:id="@+id/damage_m"
+				android:ems="5"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_below="@id/weapondetailsLinearLayout7"
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+			android:id="@+id/weapondetailsLinearLayout8">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/weapon_crit"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:textStyle="bold"
+				android:textSize="15sp"/>
+
+			<EditText
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:inputType="text"
+				android:id="@+id/weapon_crit"
+				android:ems="5"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_below="@id/weapondetailsLinearLayout8"
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+			android:id="@+id/weapondetailsLinearLayout9">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/weapon_range"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:textStyle="bold"
+				android:textSize="15sp"/>
+
+			<EditText
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:inputType="numberSigned"
+				android:id="@+id/weapon_range"
+				android:ems="5"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+			android:layout_below="@id/weapondetailsLinearLayout9"
+			android:id="@+id/weapondetailsLinearLayout10">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/weapon_price"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:textStyle="bold"
+				android:textSize="15sp"/>
+
+			<EditText
+				android:layout_width="wrap_content"
+				android:ems="5"
+				android:layout_height="wrap_content"
+				android:inputType="numberDecimal"
+				android:id="@+id/weapon_price"/>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/gold"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:textSize="15sp"
+				android:textStyle="bold"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+			android:layout_below="@id/weapondetailsLinearLayout10"
+			android:id="@+id/weapondetailsLinearLayout11">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/weapon_weight"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:textStyle="bold"
+				android:textSize="15sp"/>
+
+			<EditText
+				android:layout_width="wrap_content"
+				android:ems="5"
+				android:layout_height="wrap_content"
+				android:inputType="numberDecimal"
+				android:id="@+id/weapon_weight"/>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/pound"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:textSize="15sp"
+				android:textStyle="bold"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_below="@id/weapondetailsLinearLayout11"
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+			android:id="@+id/weapondetailsLinearLayout12">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/weapon_explain"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:textStyle="bold"
+				android:textSize="15sp"/>
+
+			<EditText
+				android:layout_width="match_parent"
+				android:ems="0"
+				android:layout_height="wrap_content"
+				android:inputType="text|textMultiLine"
+				android:id="@+id/weapon_explain"/>
+
+		</LinearLayout>
+
+	</RelativeLayout>
+
+</ScrollView>
+

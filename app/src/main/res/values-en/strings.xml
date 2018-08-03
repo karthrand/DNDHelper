@@ -107,4 +107,17 @@
     <string name="armor_price">ArmorPrice:</string>
     <string name="armor_weight">ArmorWeight:</string>
     <string name="armor_explain">More:</string>
+	<string name="weapon_name">WeaponName:</string>
+    <string name="weapon_source">WeaponSource:</string>
+    <string name="weapon_type">WeapenType:</string>
+    <string name="attack_type">AttackType:</string>
+    <string name="use_type">UsageType:</string>
+    <string name="damage_type">DamageType:</string>
+    <string name="damage_s">Damage(S):</string>
+	<string name="damage_m">Damage(M):</string>
+	<string name="weapon_crit">WeaponCritical:</string>
+	<string name="weapon_range">WeaponRange:</string>
+    <string name="weapon_price">WeaponPrice:</string>
+    <string name="weapon_weight">WeaponWeight:</string>
+    <string name="weapon_explain">More:</string>
 </resources>
